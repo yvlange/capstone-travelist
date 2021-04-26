@@ -1,5 +1,5 @@
 function Add() {
-  return <div>This is the add section</div>;
+  return <p>This is the add section</p>;
 }
 
 export default Add;

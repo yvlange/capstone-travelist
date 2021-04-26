@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header>travelist.</header>
+        <header className="Header">travelist.</header>
         <main className="Main">
           <Switch>
             <Route path="/profile">
