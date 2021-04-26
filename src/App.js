@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navigation from "./components/Navigation";
 import Add from "./components/Add";
 import Trips from "./components/Trips";
 import Profile from "./components/Profile";
@@ -9,19 +10,21 @@ function App() {
     <Router>
       <div className="App">
         <header>travelist.</header>
-        <main className="Main"></main>
-        <footer className="Footer">
+        <main className="Main">
           <Switch>
-            <Route path="/add">
-              <Add />
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route path="/trips">
               <Trips />
             </Route>
-            <Route path="/profile">
-              <Profile />
+            <Route path="/add">
+              <Add />
             </Route>
           </Switch>
+        </main>
+        <footer className="Footer">
+          <Navigation />
         </footer>
       </div>
     </Router>
