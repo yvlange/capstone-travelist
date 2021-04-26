@@ -9,13 +9,17 @@
 .App {
   text-align: left;
   display: grid;
-  grid-template-rows: [header] 80px [main] auto [footer] 80px;
+  grid-template-rows: [header] 80px [main] 507px [footer] 80px;
+  background-image: url("./images/background.png");
+  background-size: cover;
 }
 
 .Header {
   font-family: "Work Sans", sans-serif;
   font-size: 40px;
   grid-row: header;
+  color: #ffff;
+  margin: 20px;
 }
 
 .Main {
@@ -27,4 +31,5 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: sticky;
 }

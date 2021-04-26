@@ -3,3 +3,7 @@
   justify-content: space-around;
   flex-grow: 1;
 }
+
+a {
+  color: #ffff;
+}
