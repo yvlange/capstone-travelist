@@ -1,4 +1,4 @@
 function Trips() {
-  return <p>This is the profile page</p>;
+  return <p>Here are your saved trips!</p>;
 }
 export default Trips;
