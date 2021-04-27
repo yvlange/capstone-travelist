@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <div className="container"> */}
         <header className="Header">travelist.</header>
         <main className="Main">
           <Switch>
@@ -28,7 +27,6 @@ function App() {
           <Navigation />
         </footer>
       </div>
-      {/* </div> */}
     </Router>
   );
 }
