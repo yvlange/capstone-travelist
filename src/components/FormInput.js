@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "./FormInput.css";
+import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
 function FormInput({ name }) {
@@ -7,22 +7,17 @@ function FormInput({ name }) {
 
   function handleToggleButton(e) {
     e.preventDefault();
-    setIsShown(true);
+    setIsShown(!isShown);
   }
 
   return (
     <div>
       <button className="button-unfolding" onClick={handleToggleButton}>
-        <FiPlus />
+        <FiPlus className="button-plus" />
         <span className="button-label">{name}</span>
       </button>
       {isShown === true && (
-        <input
-          id="destination"
-          className="destination"
-          type="text"
-          placeholder="enter destination"
-        />
+        <input id="input" className="input" type="text" placeholder={name} />
       )}
     </div>
   );

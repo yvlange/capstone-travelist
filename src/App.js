@@ -10,6 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="Header">travelist.</header>
+
         <main className="Main">
           <Switch>
             <Route path="/profile">
@@ -23,6 +24,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+
         <footer className="Footer">
           <Navigation />
         </footer>
