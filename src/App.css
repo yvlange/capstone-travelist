@@ -27,6 +27,7 @@
   grid-row: main;
   overflow-y: scroll;
   position: relative;
+  margin: 20px;
 }
 
 .Footer {
