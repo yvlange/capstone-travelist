@@ -16,8 +16,20 @@ function FormInput({ name }) {
         <FiPlus className="button-plus" />
         <span className="button-label">{name}</span>
       </button>
-      {isShown === true && (
-        <input id="input" className="input" type="text" placeholder={name} />
+      {isShown ? (
+        <textarea
+          id="input"
+          className="input-shown"
+          type="text"
+          placeholder={name}
+        ></textarea>
+      ) : (
+        <textarea
+          id="input"
+          className="input-hidden"
+          type="text"
+          placeholder={name}
+        ></textarea>
       )}
     </div>
   );
