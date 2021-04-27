@@ -1,0 +1,14 @@
+.button-unfolding {
+  display: flex;
+  justify-content: left;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(3px);
+  text-align: left;
+}
+
+.destination {
+  padding: 10px;
+}
