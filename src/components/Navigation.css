@@ -13,17 +13,9 @@ a {
   margin: 20px;
 }
 
-.navigation__plus {
+.navigation__plus,
+.navigation__suitcase,
+.navigation__user {
   height: 60px;
   width: 60px;
-}
-
-.navigation__suitcase {
-  height: 45px;
-  width: 45px;
-}
-
-.navigation__user {
-  height: 45px;
-  width: 45px;
 }

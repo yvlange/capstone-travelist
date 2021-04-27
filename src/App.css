@@ -26,12 +26,12 @@
 .Main {
   grid-row: main;
   overflow-y: scroll;
+  position: relative;
 }
 
 .Footer {
-  grid-row: footer;
-  margin: auto 0;
+  margin: 0 auto;
   position: absolute;
-  top: 600px;
+  bottom: 0;
   width: 100vw;
 }
