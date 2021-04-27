@@ -1,5 +1,21 @@
 .navigation {
   display: flex;
   justify-content: space-around;
-  flex-grow: 1;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(3px);
+}
+
+a {
+  color: #ffff;
+  margin: 20px;
+}
+
+.navigation__plus,
+.navigation__suitcase,
+.navigation__user {
+  height: 60px;
+  width: 60px;
 }

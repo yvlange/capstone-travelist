@@ -9,22 +9,29 @@
 .App {
   text-align: left;
   display: grid;
-  grid-template-rows: [header] 80px [main] auto [footer] 80px;
+  height: 100vh;
+  grid-template-rows: [header] 80px [main] auto;
+  background-image: url("./images/background.png");
+  background-size: cover;
+  color: #ffff;
 }
 
 .Header {
   font-family: "Work Sans", sans-serif;
   font-size: 40px;
   grid-row: header;
+  margin: 20px;
 }
 
 .Main {
   grid-row: main;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .Footer {
-  grid-row: footer;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }
