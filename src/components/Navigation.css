@@ -13,9 +13,13 @@ a {
   margin: 20px;
 }
 
-.navigation__plus,
-.navigation__suitcase,
-.navigation__user {
+.navigation__plus {
   height: 60px;
   width: 60px;
+}
+
+.navigation__suitcase,
+.navigation__user {
+  height: 45px;
+  width: 45px;
 }

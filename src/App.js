@@ -15,11 +15,11 @@ function App() {
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/trips">
-              <Trips />
-            </Route>
             <Route path="/add">
               <Add />
+            </Route>
+            <Route path="/">
+              <Trips />
             </Route>
           </Switch>
         </main>
