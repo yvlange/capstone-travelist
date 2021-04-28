@@ -1,0 +1,21 @@
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150px;
+  width: 270px;
+  margin-top: 10px;
+  padding-top: 50px;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px dashed white;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  text-align: center;
+}
+
+.upload__icon {
+  height: 30px;
+  width: 40px;
+}
