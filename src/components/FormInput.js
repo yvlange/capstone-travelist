@@ -3,12 +3,16 @@ import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
 function FormInput({ name }) {
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(true);
+  //   const [input, setInput] = useState("");
 
   function handleToggleButton(e) {
     e.preventDefault();
     setIsShown(!isShown);
+    console.log(isShown);
   }
+
+  const classOnClick = isShown ? "input-hidden" : "input-shown";
 
   return (
     <div>
@@ -16,21 +20,13 @@ function FormInput({ name }) {
         <FiPlus className="button-plus" />
         <span className="button-label">{name}</span>
       </button>
-      {isShown ? (
-        <textarea
-          id="input"
-          className="input-shown"
-          type="text"
-          placeholder={name}
-        ></textarea>
-      ) : (
-        <textarea
-          id="input"
-          className="input-hidden"
-          type="text"
-          placeholder={name}
-        ></textarea>
-      )}
+
+      <textarea
+        id="input"
+        className={`${classOnClick}`}
+        type="text"
+        placeholder={name}
+      ></textarea>
     </div>
   );
 }
