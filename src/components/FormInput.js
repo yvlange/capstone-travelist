@@ -20,7 +20,6 @@ function FormInput({ name }) {
         <FiPlus className="button-plus" />
         <span className="button-label">{name}</span>
       </button>
-
       <textarea
         id="input"
         className={`${classOnClick}`}
