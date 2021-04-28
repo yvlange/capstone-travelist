@@ -2,15 +2,13 @@ import "./FormInput.css";
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
-function FormInput({ name, value, onChange }) {
+function FormInput({ id, name, value, onChange }) {
   const [isShown, setIsShown] = useState(true);
 
   function handleToggleButton(e) {
     e.preventDefault();
     setIsShown(!isShown);
   }
-
-  const classOnClick = isShown ? "input-hidden" : "input-shown";
 
   return (
     <div>
@@ -19,9 +17,8 @@ function FormInput({ name, value, onChange }) {
         <label className="button-label">{name}</label>
       </button>
       <textarea
-        id="input"
-        className={`${classOnClick}`}
-        type="text"
+        id={id}
+        className={isShown ? "input-hidden" : "input-shown"}
         placeholder={name}
         value={value}
         onChange={onChange}

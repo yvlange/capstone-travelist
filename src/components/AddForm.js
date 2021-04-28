@@ -21,6 +21,7 @@ function AddForm() {
     <div className="form">
       <form className="form__textfields" onSubmit={handleSubmit}>
         <FormInput
+          id="destination"
           name="destination"
           value={destinationInput}
           onChange={(e) => {
@@ -28,6 +29,7 @@ function AddForm() {
           }}
         />
         <FormInput
+          id="activities"
           name="activities"
           value={activitiesInput}
           onChange={(e) => {
@@ -35,6 +37,7 @@ function AddForm() {
           }}
         />
         <FormInput
+          id="restaurants"
           name="restaurants"
           value={restaurantsInput}
           onChange={(e) => {
@@ -42,6 +45,7 @@ function AddForm() {
           }}
         />
         <FormInput
+          id="notes"
           name="notes"
           value={notesInput}
           onChange={(e) => {
