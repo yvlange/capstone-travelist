@@ -10,19 +10,21 @@ function App() {
     <Router>
       <div className="App">
         <header className="Header">travelist.</header>
+
         <main className="Main">
           <Switch>
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/trips">
-              <Trips />
-            </Route>
             <Route path="/add">
               <Add />
             </Route>
+            <Route path="/">
+              <Trips />
+            </Route>
           </Switch>
         </main>
+
         <footer className="Footer">
           <Navigation />
         </footer>

@@ -21,12 +21,22 @@
   font-size: 40px;
   grid-row: header;
   margin: 20px;
+  letter-spacing: 2px;
 }
 
 .Main {
   grid-row: main;
   overflow-y: scroll;
   position: relative;
+  margin: 20px;
+  scrollbar-width: none;
+}
+
+.Main::after {
+  content: "";
+  display: block;
+  height: 105px;
+  width: 100%;
 }
 
 .Footer {

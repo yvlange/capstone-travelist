@@ -1,0 +1,50 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.form__textfields {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.form__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.submit {
+  height: 50px;
+  width: 60px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 1s;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid rgb(125, 125, 125);
+  border-radius: 5px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.cancel {
+  height: 50px;
+  width: 70spx;
+  border-radius: 10px;
+  text-align: center;
+  transition: 1s;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid rgb(125, 125, 125);
+  border-radius: 5px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}

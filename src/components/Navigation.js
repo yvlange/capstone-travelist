@@ -1,5 +1,6 @@
 import "./Navigation.css";
-import { FiPlus, FiUser } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+import { ImUser } from "react-icons/im";
 import { FaSuitcaseRolling } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -13,7 +14,7 @@ function Navigation() {
         <FaSuitcaseRolling className="navigation__suitcase" />
       </NavLink>
       <NavLink to="/profile">
-        <FiUser className="navigation__user" />
+        <ImUser className="navigation__user" />
       </NavLink>
     </nav>
   );
