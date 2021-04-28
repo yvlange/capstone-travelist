@@ -22,8 +22,11 @@ function AddForm() {
       notes: notesInput,
     });
     const trips = getTripsFromLocalStorage();
-
     console.log(trips);
+    setDestinationInput("");
+    setActivitiesInput("");
+    setRestaurantsInput("");
+    setNotesInput("");
   }
 
   return (
