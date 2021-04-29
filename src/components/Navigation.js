@@ -1,4 +1,4 @@
-import "./Navigation.css";
+import "../styles/Navigation.css";
 import { FiPlus } from "react-icons/fi";
 import { ImUser } from "react-icons/im";
 import { FaSuitcaseRolling } from "react-icons/fa";

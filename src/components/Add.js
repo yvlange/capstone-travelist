@@ -1,4 +1,4 @@
-import "./Add.css";
+import "../styles/Add.css";
 import AddForm from "./AddForm";
 
 function Add() {

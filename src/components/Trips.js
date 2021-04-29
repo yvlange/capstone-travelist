@@ -1,4 +1,6 @@
+import "../styles/Trips.css";
+
 function Trips() {
-  return <p>Here are your saved trips!</p>;
+  return <h3>your trips.</h3>;
 }
 export default Trips;

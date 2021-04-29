@@ -1,4 +1,4 @@
-import "./AddForm.css";
+import "../styles/AddForm.css";
 import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
