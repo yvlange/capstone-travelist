@@ -15,7 +15,6 @@ function Trips() {
     return destination.map((destination, index) => {
       return (
         <div>
-          <h3>your trips.</h3>
           <Link to="/saved-trip">
             <p key={index}>{destination.destination}</p>
           </Link>
@@ -23,6 +22,10 @@ function Trips() {
       );
     });
   }
-  return <div>{renderDestination()}</div>;
+  return (
+    <div>
+      <h3>your trips.</h3> <div>{renderDestination()}</div>
+    </div>
+  );
 }
 export default Trips;
