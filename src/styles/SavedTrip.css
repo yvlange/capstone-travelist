@@ -1,0 +1,44 @@
+.savedTrip {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.savedTrip__category-box {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  width: 270px;
+  margin-top: 10px;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  text-align: left;
+}
+
+.savedTrip__activities,
+.savedTrip__notes {
+  height: 30px;
+  width: 270px;
+  margin-top: 10px;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  text-align: left;
+}
+
+.savedTrip__textInput {
+  width: 270px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
