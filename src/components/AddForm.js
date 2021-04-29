@@ -2,6 +2,10 @@ import "./AddForm.css";
 import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
+import {
+  addTripsToLocalStorage,
+  getTripsFromLocalStorage,
+} from "../services/tripsStorage";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -11,10 +15,18 @@ function AddForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(destinationInput);
-    console.log(activitiesInput);
-    console.log(restaurantsInput);
-    console.log(notesInput);
+    addTripsToLocalStorage({
+      destination: destinationInput,
+      activities: activitiesInput,
+      restaurants: restaurantsInput,
+      notes: notesInput,
+    });
+    const trips = getTripsFromLocalStorage();
+    console.log(trips);
+    setDestinationInput("");
+    setActivitiesInput("");
+    setRestaurantsInput("");
+    setNotesInput("");
   }
 
   return (
