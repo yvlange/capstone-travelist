@@ -2,7 +2,6 @@ import "../styles/SavedTrip.css";
 import { BsChevronDown } from "react-icons/bs";
 import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
-import { SingleTrip } from "./SingleTrip";
 
 function SavedTrip() {
   const [tripData, setTripData] = useState([]);
