@@ -1,4 +1,4 @@
-import "./UploadPhoto.css";
+import "../styles/UploadPhoto.css";
 import { BsUpload } from "react-icons/bs";
 
 function UploadPhoto() {

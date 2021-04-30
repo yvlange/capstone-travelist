@@ -1,4 +1,4 @@
-import "./FormInput.css";
+import "../styles/FormInput.css";
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 

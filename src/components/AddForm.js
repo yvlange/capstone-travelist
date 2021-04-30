@@ -1,4 +1,4 @@
-import "./AddForm.css";
+import "../styles/AddForm.css";
 import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
@@ -16,6 +16,7 @@ function AddForm() {
   function handleSubmit(e) {
     e.preventDefault();
     addTripsToLocalStorage({
+      id: `${destinationInput}`,
       destination: destinationInput,
       activities: activitiesInput,
       restaurants: restaurantsInput,
