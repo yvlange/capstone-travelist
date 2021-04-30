@@ -16,6 +16,7 @@ function AddForm() {
   function handleSubmit(e) {
     e.preventDefault();
     addTripsToLocalStorage({
+      id: `${destinationInput}`,
       destination: destinationInput,
       activities: activitiesInput,
       restaurants: restaurantsInput,

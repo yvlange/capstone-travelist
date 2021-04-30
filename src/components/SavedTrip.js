@@ -9,6 +9,7 @@ function SavedTrip() {
   useEffect(() => {
     const trip = getTripsFromLocalStorage("tripData");
     setTripData(trip);
+    console.log(trip);
   }, []);
 
   function renderTrip() {
@@ -24,6 +25,15 @@ function SavedTrip() {
             </label>
           </div>
           <p className="savedTrip__textInput">{trip.destination}</p>
+          <div className="savedTrip__category-box">
+            <label className="savedTrip__destination">
+              activities.
+              <span>
+                <BsChevronDown className="savedTrip__icon-down" />
+              </span>
+            </label>
+          </div>
+          <p className="savedTrip__textInput">{trip.activities}</p>
         </div>
       );
     });
