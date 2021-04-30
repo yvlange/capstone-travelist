@@ -20,7 +20,7 @@ function App() {
             <Route path="/add">
               <Add />
             </Route>
-            <Route path="/saved-trip">
+            <Route path="/saved-trip/:id">
               <SavedTrip />
             </Route>
             <Route path="/">
