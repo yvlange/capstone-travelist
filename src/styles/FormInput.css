@@ -27,12 +27,20 @@
   letter-spacing: 3px;
 }
 
-.input-shown {
-  width: 100%;
-  max-width: 270px;
-  height: 50px;
-  padding: 15px;
+textarea {
+  overflow: hidden;
+  padding: 10px;
+  width: 250px;
+  margin: 20px auto;
   font-family: "Roboto";
+  display: block;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  backdrop-filter: blur(7px);
+  text-align: left;
 }
 
 .input-hidden {
