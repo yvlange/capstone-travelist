@@ -28,14 +28,9 @@ function FormInput({ id, name, value, onChange }) {
     textField.style.height = height + "px";
   };
 
-  document.addEventListener(
-    "input",
-    function (e) {
-      if (e.target.tagName.toLowerCase() !== "textarea") return;
-      autoExpand(e.target);
-    },
-    false
-  );
+  function handleInput(event) {
+    autoExpand(event.target);
+  }
 
   return (
     <div>
@@ -49,6 +44,7 @@ function FormInput({ id, name, value, onChange }) {
         placeholder={name}
         value={value}
         onChange={onChange}
+        onInput={handleInput}
       ></textarea>
     </div>
   );

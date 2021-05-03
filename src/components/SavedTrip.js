@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import TripDetails from "./TripDetails";
 
 function SavedTrip() {
-  const [singleTrip, setSingleTrip] = useState([]);
+  const [singleTrip, setSingleTrip] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
