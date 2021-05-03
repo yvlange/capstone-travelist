@@ -15,14 +15,14 @@ function FormInput({ id, name, value, onChange }) {
     textField.style.height = "inherit";
 
     // Get the computed styles for the element
-    const computed = window.getComputedStyle(textField);
+    const computed = getComputedStyle(textField);
 
     // Calculate the height
     const height =
       parseInt(computed.getPropertyValue("border-top-width")) +
-      parseInt(computed.getPropertyValue("padding-top")) +
+      parseInt(computed.getPropertyValue("padding-top")) / 2 +
       textField.scrollHeight +
-      parseInt(computed.getPropertyValue("padding-bottom")) +
+      parseInt(computed.getPropertyValue("padding-bottom")) / 2 +
       parseInt(computed.getPropertyValue("border-bottom-width"));
 
     textField.style.height = height + "px";
