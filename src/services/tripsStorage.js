@@ -12,15 +12,6 @@ export function getSingleTripFromLocalStorage(id) {
   return singleTrip;
 }
 
-// export function getSingleTripFromLocalStorage(id) {
-//   const trips = getTripsFromLocalStorage();
-
-//   const singleTrip = trips.find((trip) => {
-//     return trip.id === id;
-//   });
-//   return singleTrip;
-// }
-
 export function addTripsToLocalStorage(trip) {
   const trips = getTripsFromLocalStorage();
 

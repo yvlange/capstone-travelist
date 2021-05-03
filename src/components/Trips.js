@@ -3,6 +3,7 @@ import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// rename to trips
 function Trips() {
   const [destination, setDestination] = useState([]);
 
