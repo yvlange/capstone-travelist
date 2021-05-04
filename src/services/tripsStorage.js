@@ -1,3 +1,11 @@
+export function addTripsToLocalStorage(trip) {
+  const trips = getTripsFromLocalStorage();
+
+  trips.push(trip);
+
+  localStorage.setItem("tripData", JSON.stringify(trips));
+}
+
 export function getTripsFromLocalStorage() {
   const trips = JSON.parse(localStorage.getItem("tripData")) || [];
 
@@ -12,10 +20,16 @@ export function getSingleTripFromLocalStorage(id) {
   return singleTrip;
 }
 
-export function addTripsToLocalStorage(trip) {
-  const trips = getTripsFromLocalStorage();
+export function editSingleTripFromLocalStorage(id, updatedTrip) {
+  const myTrips = getTripsFromLocalStorage();
 
-  trips.push(trip);
+  const updatedTrips = myTrips.map((trip) => {
+    if (trip.id === id) {
+      return { ...trip, ...updatedTrip };
+    } else {
+      return trip;
+    }
+  });
 
-  localStorage.setItem("tripData", JSON.stringify(trips));
+  localStorage.setItem("tripData", JSON.stringify(updatedTrips));
 }

@@ -3,21 +3,20 @@ import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// rename to trips
 function Trips() {
-  const [destination, setDestination] = useState([]);
+  const [trips, setTrips] = useState([]);
 
   useEffect(() => {
-    const destination = getTripsFromLocalStorage("tripData");
-    setDestination(destination);
+    const trip = getTripsFromLocalStorage("tripData");
+    setTrips(trip);
   }, []);
 
-  function renderDestination() {
-    return destination.map((destination, index) => {
+  function renderTrips() {
+    return trips.map((trips, index) => {
       return (
         <div>
-          <Link to={`/saved-trip/${destination.id}`}>
-            <p key={index}>{destination.destination}</p>
+          <Link to={`/saved-trip/${trips.id}`}>
+            <p key={index}>{trips.destination}</p>
           </Link>
         </div>
       );
@@ -25,7 +24,7 @@ function Trips() {
   }
   return (
     <div>
-      <h3>your trips.</h3> <div>{renderDestination()}</div>
+      <h3>your trips.</h3> <div>{renderTrips()}</div>
     </div>
   );
 }

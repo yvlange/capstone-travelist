@@ -6,10 +6,12 @@
 
 .tripDetails__box {
   width: 100%;
+  padding: 5px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   backdrop-filter: blur(6px);
+  cursor: pointer;
 }
 
 .tripDetails__label {
@@ -19,4 +21,5 @@
 .tripDetails__text {
   display: inline-block;
   white-space: pre-line;
+  padding-top: 10px;
 }
