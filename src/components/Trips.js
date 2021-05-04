@@ -3,6 +3,7 @@ import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// rename to trips
 function Trips() {
   const [destination, setDestination] = useState([]);
 
@@ -15,7 +16,7 @@ function Trips() {
     return destination.map((destination, index) => {
       return (
         <div>
-          <Link to="/saved-trip">
+          <Link to={`/saved-trip/${destination.id}`}>
             <p key={index}>{destination.destination}</p>
           </Link>
         </div>

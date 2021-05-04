@@ -10,6 +10,28 @@ function FormInput({ id, name, value, onChange }) {
     setIsShown(!isShown);
   }
 
+  const autoExpand = function (textField) {
+    // Reset field height
+    textField.style.height = "inherit";
+
+    // Get the computed styles for the element
+    const computed = getComputedStyle(textField);
+
+    // Calculate the height
+    const height =
+      parseInt(computed.getPropertyValue("border-top-width")) +
+      parseInt(computed.getPropertyValue("padding-top")) / 2 +
+      textField.scrollHeight +
+      parseInt(computed.getPropertyValue("padding-bottom")) / 2 +
+      parseInt(computed.getPropertyValue("border-bottom-width"));
+
+    textField.style.height = height + "px";
+  };
+
+  function handleInput(event) {
+    autoExpand(event.target);
+  }
+
   return (
     <div>
       <button className="button-unfolding" onClick={handleToggleButton}>
@@ -18,10 +40,11 @@ function FormInput({ id, name, value, onChange }) {
       </button>
       <textarea
         id={id}
-        className={isShown ? "input-hidden" : "input-shown"}
+        className={isShown ? "input-hidden" : null}
         placeholder={name}
         value={value}
         onChange={onChange}
+        onInput={handleInput}
       ></textarea>
     </div>
   );

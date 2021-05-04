@@ -4,13 +4,12 @@ export function getTripsFromLocalStorage() {
   return trips;
 }
 
-export function getSingleTripFromLocalStorage(tripId) {
-  const trips = getTripsFromLocalStorage();
-
-  const singleTrip = trips.find((trip) => {
-    return trip.id === tripId;
+export function getSingleTripFromLocalStorage(id) {
+  const myTrips = getTripsFromLocalStorage();
+  const singleTrip = myTrips.find((trip) => {
+    return trip.id === id;
   });
-  localStorage.setItem("tripData", JSON.stringify(singleTrip));
+  return singleTrip;
 }
 
 export function addTripsToLocalStorage(trip) {
