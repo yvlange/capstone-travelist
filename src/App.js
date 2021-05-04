@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation";
 import Add from "./components/Add";
 import Trips from "./components/Trips";
 import Profile from "./components/Profile";
-import SavedTrips from "./components/SavedTrips";
+import SavedTrip from "./components/SavedTrip";
 import EditTrip from "./components/EditTrip";
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
             <Route path="/saved-trips/:id/edit">
               <EditTrip />
             </Route>
-            <Route path="/saved-trips/:id">
-              <SavedTrips />
+            <Route path="/saved-trip/:id">
+              <SavedTrip />
             </Route>
             <Route path="/">
               <Trips />

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import TripDetails from "./TripDetails";
 
-function SavedTrips() {
+function SavedTrip() {
   const [singleTrip, setSingleTrip] = useState({});
   const { id } = useParams();
 
@@ -14,7 +14,7 @@ function SavedTrips() {
   }, [id]);
 
   return (
-    <div className="savedTrips" key={id}>
+    <div className="savedTrip" key={id}>
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
@@ -30,4 +30,4 @@ function SavedTrips() {
   );
 }
 
-export default SavedTrips;
+export default SavedTrip;

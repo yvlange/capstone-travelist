@@ -6,7 +6,7 @@ import {
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import FormInput from "./FormInput";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -14,6 +14,7 @@ function EditTrip() {
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const { id } = useParams();
+  const history = useHistory();
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -23,6 +24,7 @@ function EditTrip() {
       restaurants: restaurantsInput,
       notes: notesInput,
     });
+    history.push("/Trips");
   }
 
   useEffect(() => {
@@ -31,7 +33,6 @@ function EditTrip() {
     setActivitiesInput(myTrip.activities);
     setRestaurantsInput(myTrip.restaurants);
     setNotesInput(myTrip.notes);
-    console.log(id);
   }, [id]);
 
   return (
@@ -71,11 +72,9 @@ function EditTrip() {
           }}
         />
         <div className="saveButtonBox">
-          <Link to="/Trips">
-            <button type="submit" className="saveButton">
-              save
-            </button>
-          </Link>
+          <button type="submit" className="saveButton">
+            save
+          </button>
         </div>
       </form>
     </div>
