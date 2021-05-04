@@ -5,6 +5,7 @@ import Add from "./components/Add";
 import Trips from "./components/Trips";
 import Profile from "./components/Profile";
 import SavedTrips from "./components/SavedTrips";
+import EditTrip from "./components/EditTrip";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/add">
               <Add />
+            </Route>
+            <Route path="/saved-trips/:id/edit">
+              <EditTrip />
             </Route>
             <Route path="/saved-trips/:id">
               <SavedTrips />
