@@ -1,4 +1,16 @@
+.editForm {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.saveButtonBox {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .saveButton {
+  margin: 20px;
   height: 50px;
   width: 60px;
   border-radius: 10px;

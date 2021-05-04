@@ -18,10 +18,14 @@ function SavedTrips() {
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
-      <TripDetails name="activities." text={singleTrip.activities} />
-      <TripDetails name="restaurants." text={singleTrip.restaurants} />
-      <TripDetails name="notes." text={singleTrip.notes} />
-      <Link to={`/saved-trips/${singleTrip.id}/edit`}>Edit</Link>
+      <TripDetails name="activities" text={singleTrip.activities} />
+      <TripDetails name="restaurants" text={singleTrip.restaurants} />
+      <TripDetails name="notes" text={singleTrip.notes} />
+      <div className="editButtonBox">
+        <Link to={`/saved-trips/${singleTrip.id}/edit`}>
+          <button className="editButton">edit</button>
+        </Link>
+      </div>
     </div>
   );
 }

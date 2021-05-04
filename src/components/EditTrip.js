@@ -1,11 +1,12 @@
 import "../styles/EditTrip.css";
 import {
   editSingleTripFromLocalStorage,
-  getTripsFromLocalStorage,
+  getSingleTripFromLocalStorage,
 } from "../services/tripsStorage";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import FormInput from "./FormInput";
+import { Link } from "react-router-dom";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -25,17 +26,18 @@ function EditTrip() {
   }
 
   useEffect(() => {
-    const myTrip = getTripsFromLocalStorage(id);
+    const myTrip = getSingleTripFromLocalStorage(id);
     setDestinationInput(myTrip.destination);
     setActivitiesInput(myTrip.activities);
     setRestaurantsInput(myTrip.restaurants);
     setNotesInput(myTrip.notes);
+    console.log(id);
   }, [id]);
 
   return (
-    <div className="editForm">
+    <div>
       <h3>edit your trip.</h3>
-      <form onSubmit={handleOnSubmit}>
+      <form className="editForm" onSubmit={handleOnSubmit}>
         <FormInput
           id="destination"
           name="destination"
@@ -68,9 +70,13 @@ function EditTrip() {
             setNotesInput(e.target.value);
           }}
         />
-        <button type="submit" className="saveButton">
-          Save
-        </button>
+        <div className="saveButtonBox">
+          <Link to="/Trips">
+            <button type="submit" className="saveButton">
+              save
+            </button>
+          </Link>
+        </div>
       </form>
     </div>
   );
