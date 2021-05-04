@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation";
 import Add from "./components/Add";
 import Trips from "./components/Trips";
 import Profile from "./components/Profile";
-import SavedTrip from "./components/SavedTrip";
+import SavedTrips from "./components/SavedTrips";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
             <Route path="/add">
               <Add />
             </Route>
-            <Route path="/saved-trip/:id">
-              <SavedTrip />
+            <Route path="/saved-trips/:id">
+              <SavedTrips />
             </Route>
             <Route path="/">
               <Trips />

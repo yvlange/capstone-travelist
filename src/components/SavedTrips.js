@@ -1,10 +1,10 @@
-import "../styles/SavedTrip.css";
+import "../styles/SavedTrips.css";
 import { getSingleTripFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TripDetails from "./TripDetails";
 
-function SavedTrip() {
+function SavedTrips() {
   const [singleTrip, setSingleTrip] = useState({});
   const { id } = useParams();
 
@@ -14,7 +14,7 @@ function SavedTrip() {
   }, [id]);
 
   return (
-    <div className="savedTrip" key={id}>
+    <div className="savedTrips" key={id}>
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
@@ -25,4 +25,4 @@ function SavedTrip() {
   );
 }
 
-export default SavedTrip;
+export default SavedTrips;

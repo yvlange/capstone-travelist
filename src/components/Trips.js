@@ -16,7 +16,7 @@ function Trips() {
     return destination.map((destination, index) => {
       return (
         <div>
-          <Link to={`/saved-trip/${destination.id}`}>
+          <Link to={`/saved-trips/${destination.id}`}>
             <p key={index}>{destination.destination}</p>
           </Link>
         </div>
