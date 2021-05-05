@@ -1,0 +1,23 @@
+.noTripsContainer {
+  display: flex;
+  align-content: center;
+  text-align: center;
+
+  letter-spacing: 2px;
+}
+
+.noTrips {
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid rgb(125, 125, 125);
+  border-radius: 5px;
+  backdrop-filter: blur(8px);
+  height: 40vh;
+  width: 300px;
+}
+
+.noTripsContent {
+  padding: 100px 0;
+}

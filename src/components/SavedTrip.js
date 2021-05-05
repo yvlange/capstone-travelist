@@ -1,4 +1,4 @@
-import "../styles/SavedTrips.css";
+import "../styles/SavedTrip.css";
 import { getSingleTripFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
