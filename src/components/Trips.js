@@ -2,6 +2,7 @@ import "../styles/Trips.css";
 import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import NoTripsPlaceholder from "./NoTripsPlaceholder";
 
 function Trips() {
   const [trips, setTrips] = useState([]);
@@ -23,8 +24,12 @@ function Trips() {
     });
   }
   return (
-    <div>
-      <h3>your trips.</h3> <div>{renderTrips()}</div>
+    <div className="container">
+      <h3>your trips.</h3>
+      <div>
+        {trips.length < 1 && <NoTripsPlaceholder />}
+        {renderTrips()}
+      </div>
     </div>
   );
 }
