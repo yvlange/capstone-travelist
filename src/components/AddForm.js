@@ -12,22 +12,37 @@ function AddForm() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
+  const [imageUpload, setImageUpload] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    addTripsToLocalStorage({
-      id: `${destinationInput}`,
-      destination: destinationInput,
-      activities: activitiesInput,
-      restaurants: restaurantsInput,
-      notes: notesInput,
-    });
-    const trips = getTripsFromLocalStorage();
-    console.log(trips);
-    setDestinationInput("");
-    setActivitiesInput("");
-    setRestaurantsInput("");
-    setNotesInput("");
+    const formData = new FormData();
+    formData.append("file", imageUpload);
+    formData.append("upload_preset", "tyikvr8a");
+
+    fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+      method: "PUT",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const imageURL = data.secure_url;
+        addTripsToLocalStorage({
+          id: destinationInput,
+          destination: destinationInput,
+          activities: activitiesInput,
+          restaurants: restaurantsInput,
+          notes: notesInput,
+          photo: imageURL,
+        });
+        const trips = getTripsFromLocalStorage();
+        console.log(trips);
+        setDestinationInput("");
+        setActivitiesInput("");
+        setRestaurantsInput("");
+        setNotesInput("");
+        setImageUpload("");
+      });
   }
 
   return (
@@ -65,7 +80,13 @@ function AddForm() {
             setNotesInput(e.target.value);
           }}
         />
-        <UploadPhoto />
+        <UploadPhoto
+          id="photo"
+          name="photo"
+          onChange={(e) => {
+            setImageUpload(e.target.files[0]);
+          }}
+        />
         <div className="form__buttons">
           <button type="submit" className="submit">
             save
