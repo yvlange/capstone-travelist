@@ -19,3 +19,11 @@
   height: 30px;
   width: 40px;
 }
+
+/* .upload__input {
+  display: none;
+} */
+
+.upload__label {
+  cursor: pointer;
+}
