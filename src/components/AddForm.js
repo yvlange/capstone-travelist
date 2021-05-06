@@ -6,7 +6,6 @@ import {
   addTripsToLocalStorage,
   getTripsFromLocalStorage,
 } from "../services/tripsStorage";
-import axios from "axios";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -21,12 +20,15 @@ function AddForm() {
     formData.append("file", imageUpload);
     formData.append("upload_preset", "tyikvr8a");
 
-    axios
-      .post("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", formData)
-      .then((response) => {
-        const imageURL = String(response.data.secure_url);
+    fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+      method: "PUT",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const imageURL = data.secure_url;
         addTripsToLocalStorage({
-          id: `${destinationInput}`,
+          id: destinationInput,
           destination: destinationInput,
           activities: activitiesInput,
           restaurants: restaurantsInput,
