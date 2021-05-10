@@ -10,7 +10,6 @@ function UploadPhoto({ id, name, value, onChange }) {
       </label> */}
       <input
         type="file"
-        mulitple
         className="upload__input"
         id={id}
         name={name}

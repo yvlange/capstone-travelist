@@ -6,4 +6,26 @@ h3 {
   display: flex;
   flex-direction: column;
   position: absolute;
+  columns: 4;
+}
+
+.container::after {
+  content: "";
+  display: block;
+  height: 105px;
+  width: 100%;
+}
+
+.randomImages {
+  border: 0.5px solid rgb(125, 125, 125);
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  padding: 1em;
+  margin-left: 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
 }

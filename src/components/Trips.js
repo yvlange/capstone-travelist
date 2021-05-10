@@ -1,8 +1,8 @@
 import "../styles/Trips.css";
 import { getTripsFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
+import { Link } from "react-router-dom";
 
 function Trips() {
   const [trips, setTrips] = useState([]);
@@ -15,9 +15,16 @@ function Trips() {
   function renderTrips() {
     return trips.map((trips, index) => {
       return (
-        <div>
+        <div className="randomImages">
           <Link to={`/saved-trip/${trips.id}`}>
-            <p key={index}>{trips.destination}</p>
+            <img
+              src={`https://source.unsplash.com/random/125x180/?${trips.destination}`}
+              alt="destination"
+              className="randomImages__image"
+            />
+            <p className="randomImages__destination" key={index}>
+              {trips.destination}
+            </p>
           </Link>
         </div>
       );

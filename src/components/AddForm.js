@@ -2,10 +2,7 @@ import "../styles/AddForm.css";
 import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
-import {
-  addTripsToLocalStorage,
-  getTripsFromLocalStorage,
-} from "../services/tripsStorage";
+import { addTripsToLocalStorage } from "../services/tripsStorage";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -35,8 +32,7 @@ function AddForm() {
           notes: notesInput,
           photo: imageURL,
         });
-        const trips = getTripsFromLocalStorage();
-        console.log(trips);
+
         setDestinationInput("");
         setActivitiesInput("");
         setRestaurantsInput("");
