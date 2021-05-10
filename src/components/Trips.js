@@ -1,5 +1,8 @@
 import "../styles/Trips.css";
-import { getTripsFromLocalStorage } from "../services/tripsStorage";
+import {
+  getTripsFromLocalStorage,
+  removeTripFromLocalStorage,
+} from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
 import { Link } from "react-router-dom";
@@ -11,6 +14,13 @@ function Trips() {
     const trip = getTripsFromLocalStorage("tripData");
     setTrips(trip);
   }, []);
+
+  function handleRemoveTrip(trip) {
+    removeTripFromLocalStorage(trip);
+    const trips = getTripsFromLocalStorage();
+    setTrips(trips);
+  }
+  console.log(trips);
 
   function renderTrips() {
     return trips.map((trips, index) => {
@@ -26,6 +36,7 @@ function Trips() {
               {trips.destination}
             </p>
           </Link>
+          <button onClick={() => handleRemoveTrip(trips.id)}>X</button>
         </div>
       );
     });
