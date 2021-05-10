@@ -2,13 +2,6 @@ h3 {
   letter-spacing: 4px;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  columns: 4;
-}
-
 .container::after {
   content: "";
   display: block;
@@ -28,4 +21,14 @@ h3 {
 
 a {
   text-decoration: none;
+  letter-spacing: 2px;
+}
+.randomImages__info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0;
+}
+
+.randomImages__delete {
+  cursor: pointer;
 }

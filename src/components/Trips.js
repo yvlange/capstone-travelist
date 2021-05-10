@@ -6,6 +6,7 @@ import {
 import { useEffect, useState } from "react";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
 import { Link } from "react-router-dom";
+import { RiDeleteBin2Line } from "react-icons/ri";
 
 function Trips() {
   const [trips, setTrips] = useState([]);
@@ -17,10 +18,9 @@ function Trips() {
 
   function handleRemoveTrip(trip) {
     removeTripFromLocalStorage(trip);
-    const trips = getTripsFromLocalStorage();
-    setTrips(trips);
+    const newTrips = getTripsFromLocalStorage();
+    setTrips(newTrips);
   }
-  console.log(trips);
 
   function renderTrips() {
     return trips.map((trips, index) => {
@@ -32,11 +32,18 @@ function Trips() {
               alt="destination"
               className="randomImages__image"
             />
-            <p className="randomImages__destination" key={index}>
-              {trips.destination}
-            </p>
+            <div className="randomImages__info">
+              <p className="randomImages__destination" key={index}>
+                {trips.destination}
+              </p>
+              <span
+                className="randomImages__delete"
+                onClick={() => handleRemoveTrip(trips.id)}
+              >
+                <RiDeleteBin2Line />
+              </span>
+            </div>
           </Link>
-          <button onClick={() => handleRemoveTrip(trips.id)}>X</button>
         </div>
       );
     });
