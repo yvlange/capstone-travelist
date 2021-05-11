@@ -8,36 +8,3 @@ h3 {
   height: 105px;
   width: 100%;
 }
-
-.randomImages {
-  border: 0.5px solid rgb(125, 125, 125);
-  border-radius: 5px;
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  margin-left: 5px;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.randomImages__image {
-  width: 125px;
-  height: 180px;
-}
-
-a {
-  text-decoration: none;
-  letter-spacing: 2px;
-}
-.randomImages__info {
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-  font-size: 20px;
-}
-
-.randomImages__delete {
-  cursor: pointer;
-  margin: 0;
-  width: 20px;
-  height: 20px;
-}
