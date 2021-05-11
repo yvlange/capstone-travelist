@@ -5,6 +5,9 @@
 }
 
 .randomImages {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   box-shadow: 5px 5px 10px #d9d9d93e, -5px -5px 20px #ffffff5a;
   border-radius: 5px;
   backdrop-filter: blur(10px);
@@ -21,18 +24,17 @@
 
 a {
   text-decoration: none;
+  text-align: center;
   letter-spacing: 2px;
+  margin-bottom: 0;
 }
 
 .randomImages__info {
-  display: flex;
-  justify-content: space-between;
   font-size: 20px;
 }
 
 .randomImages__delete {
   cursor: pointer;
-  margin: 0;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }

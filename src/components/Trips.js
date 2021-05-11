@@ -5,8 +5,6 @@ import {
 } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
-import { Link } from "react-router-dom";
-
 import TripCard from "./TripCard";
 
 function Trips() {
@@ -26,14 +24,16 @@ function Trips() {
   function renderTrips() {
     return trips.map((trips, index) => {
       return (
-        <Link to={`/saved-trip/${trips.id}`}>
+        <div>
           <TripCard
-            src={`https://source.unsplash.com/random/?${trips.destination}`}
+            path={`/saved-trip/${trips.id}`}
             key={index}
+            src={`https://source.unsplash.com/random/?${trips.destination}`}
+            alt={trips.destination}
             text={trips.destination}
-            onClick={handleRemoveTrip}
+            onClick={() => handleRemoveTrip(trips.id)}
           />
-        </Link>
+        </div>
       );
     });
   }
