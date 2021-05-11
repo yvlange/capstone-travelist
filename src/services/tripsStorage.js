@@ -33,3 +33,13 @@ export function editSingleTripFromLocalStorage(id, updatedTrip) {
 
   localStorage.setItem("tripData", JSON.stringify(updatedTrips));
 }
+
+export function removeTripFromLocalStorage(tripId) {
+  const myTrips = getTripsFromLocalStorage();
+
+  const newTrips = myTrips.filter((trip) => {
+    return trip.id !== tripId;
+  });
+
+  localStorage.setItem("tripData", JSON.stringify(newTrips));
+}

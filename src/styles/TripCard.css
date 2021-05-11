@@ -1,0 +1,40 @@
+.randomImages__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.randomImages {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 5px 5px 10px #d9d9d93e, -5px -5px 20px #ffffff5a;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.randomImages__image {
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+.randomImages__info {
+  font-size: 20px;
+}
+
+.randomImages__delete {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}

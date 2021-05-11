@@ -1,8 +1,11 @@
 import "../styles/Trips.css";
-import { getTripsFromLocalStorage } from "../services/tripsStorage";
+import {
+  getTripsFromLocalStorage,
+  removeTripFromLocalStorage,
+} from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
-import { Link } from "react-router-dom";
+import TripCard from "./TripCard";
 
 function Trips() {
   const [trips, setTrips] = useState([]);
@@ -12,20 +15,27 @@ function Trips() {
     setTrips(trip);
   }, []);
 
+  function handleRemoveTrip(trip) {
+    const confirm = window.confirm("Do you really want to remove the trip?");
+    if (confirm) {
+      removeTripFromLocalStorage(trip);
+      const newTrips = getTripsFromLocalStorage();
+      setTrips(newTrips);
+    }
+  }
+
   function renderTrips() {
     return trips.map((trips, index) => {
       return (
-        <div className="randomImages">
-          <Link to={`/saved-trip/${trips.id}`}>
-            <img
-              src={`https://source.unsplash.com/random/125x180/?${trips.destination}`}
-              alt="destination"
-              className="randomImages__image"
-            />
-            <p className="randomImages__destination" key={index}>
-              {trips.destination}
-            </p>
-          </Link>
+        <div>
+          <TripCard
+            path={`/saved-trip/${trips.id}`}
+            key={index}
+            src={`https://source.unsplash.com/random/?${trips.destination}`}
+            alt={trips.destination}
+            text={trips.destination}
+            onClick={() => handleRemoveTrip(trips.id)}
+          />
         </div>
       );
     });
@@ -33,7 +43,7 @@ function Trips() {
   return (
     <div className="container">
       <h3>your trips.</h3>
-      <div>
+      <div className="randomImages__container">
         {trips.length < 1 && <NoTripsPlaceholder />}
         {renderTrips()}
       </div>
