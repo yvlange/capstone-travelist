@@ -28,7 +28,7 @@ function Trips() {
         <div className="randomImages">
           <Link to={`/saved-trip/${trips.id}`}>
             <img
-              src={`https://source.unsplash.com/random/125x180/?${trips.destination}`}
+              src={`https://source.unsplash.com/random/?${trips.destination}`}
               alt="destination"
               className="randomImages__image"
             />
@@ -36,12 +36,9 @@ function Trips() {
               <p className="randomImages__destination" key={index}>
                 {trips.destination}
               </p>
-              <span
-                className="randomImages__delete"
-                onClick={() => handleRemoveTrip(trips.id)}
-              >
-                <RiDeleteBin2Line />
-              </span>
+              <div onClick={() => handleRemoveTrip(trips.id)}>
+                <RiDeleteBin2Line className="randomImages__delete" />
+              </div>
             </div>
           </Link>
         </div>

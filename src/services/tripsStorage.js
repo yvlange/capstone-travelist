@@ -40,6 +40,6 @@ export function removeTripFromLocalStorage(tripId) {
   const newTrips = myTrips.filter((trip) => {
     return trip.id !== tripId;
   });
-  console.log(newTrips);
+
   localStorage.setItem("tripData", JSON.stringify(newTrips));
 }
