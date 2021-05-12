@@ -3,9 +3,12 @@ import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
+// import DateInput from "./DateInput";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
+  const [startDateInput, setStartDateInput] = useState("");
+  const [endDateInput, setEndDateInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
@@ -27,13 +30,17 @@ function AddForm() {
         addTripsToLocalStorage({
           id: destinationInput,
           destination: destinationInput,
+          start: startDateInput,
+          end: endDateInput,
           activities: activitiesInput,
           restaurants: restaurantsInput,
           notes: notesInput,
           photo: imageURL,
         });
-
+        console.log(startDateInput);
         setDestinationInput("");
+        setStartDateInput("");
+        setEndDateInput("");
         setActivitiesInput("");
         setRestaurantsInput("");
         setNotesInput("");
@@ -52,6 +59,26 @@ function AddForm() {
             setDestinationInput(e.target.value);
           }}
         />
+        {/* <DateInput
+          type="date"
+          id="startDate"
+          name="start date"
+          text="start date"
+          value={startDateInput}
+          onChange={(e) => {
+            setStartDateInput(e.target.value);
+          }}
+        />
+        <DateInput
+          type="date"
+          id="endDate"
+          name="end date"
+          text="end date"
+          value={endDateInput}
+          onChange={(e) => {
+            setEndDateInput(e.target.value);
+          }}
+        /> */}
         <FormInput
           id="activities"
           name="activities"

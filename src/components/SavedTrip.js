@@ -19,6 +19,7 @@ function SavedTrip() {
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
+      <TripDetails name="date" text={singleTrip.date} />
       <TripDetails name="activities" text={singleTrip.activities} />
       <TripDetails name="restaurants" text={singleTrip.restaurants} />
       <TripDetails name="notes" text={singleTrip.notes} />
