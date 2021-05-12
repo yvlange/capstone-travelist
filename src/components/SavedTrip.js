@@ -27,7 +27,6 @@ function SavedTrip() {
     setSecondMonth(myTrip.dates[1].month.name);
     setSecondDay(myTrip.dates[1].day);
   }, [id]);
-  console.log(singleTrip);
 
   return (
     <div className="savedTrip" key={id}>
