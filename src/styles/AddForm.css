@@ -48,3 +48,17 @@
   backdrop-filter: blur(6px);
   cursor: pointer;
 }
+
+.custom-input {
+  border-radius: 15px;
+  border: 0.5px solid rgb(125, 125, 125);
+  padding: 4px 12px;
+  background-color: white;
+  height: 22px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+.custom-input:focus {
+  outline: none;
+  box-shadow: 5px 5px 10px #d9d9d93e, -5px -5px 20px #ffffff5a;
+}
