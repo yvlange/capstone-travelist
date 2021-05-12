@@ -35,6 +35,7 @@ function AddForm() {
           notes: notesInput,
           photo: imageURL,
         });
+
         setDestinationInput("");
         setDatesInput("");
         setActivitiesInput("");
@@ -51,7 +52,6 @@ function AddForm() {
           value={datesInput}
           onChange={(date) => setDatesInput(date)}
           format="MM/DD/YYYY"
-          multiple
           range
           inputClass="custom-input"
         />
