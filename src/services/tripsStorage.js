@@ -5,7 +5,6 @@ export function addTripsToLocalStorage(trip) {
 
   localStorage.setItem("tripData", JSON.stringify(trips));
 }
-
 export function getTripsFromLocalStorage() {
   const trips = JSON.parse(localStorage.getItem("tripData")) || [];
 

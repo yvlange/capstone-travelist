@@ -3,9 +3,11 @@ import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
+import DatePicker from "react-multi-date-picker";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
+  const [datesInput, setDatesInput] = useState(new Date());
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
@@ -27,6 +29,7 @@ function AddForm() {
         addTripsToLocalStorage({
           id: destinationInput,
           destination: destinationInput,
+          dates: datesInput,
           activities: activitiesInput,
           restaurants: restaurantsInput,
           notes: notesInput,
@@ -34,6 +37,7 @@ function AddForm() {
         });
 
         setDestinationInput("");
+        setDatesInput("");
         setActivitiesInput("");
         setRestaurantsInput("");
         setNotesInput("");
@@ -44,6 +48,13 @@ function AddForm() {
   return (
     <div className="form">
       <form className="form__textfields" onSubmit={handleSubmit}>
+        <DatePicker
+          value={datesInput}
+          onChange={(date) => setDatesInput(date)}
+          format="MM/DD/YYYY"
+          range
+          inputClass="custom-input"
+        />
         <FormInput
           id="destination"
           name="destination"
