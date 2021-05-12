@@ -13,7 +13,7 @@ function SavedTrip() {
     const myTrip = getSingleTripFromLocalStorage(id);
     setSingleTrip(myTrip);
   }, [id]);
-
+  console.log(singleTrip.dates);
   return (
     <div className="savedTrip" key={id}>
       <h3>
