@@ -33,7 +33,7 @@ function SavedTrip() {
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
-      {/* <Weather text={singleTrip.destination} /> */}
+      <Weather text={singleTrip.destination} />
       <TripDetails
         name="date"
         text={`${firstDay}. ${firstMonth} ${firstYear} -
@@ -43,11 +43,10 @@ function SavedTrip() {
       <TripDetails name="restaurants" text={singleTrip.restaurants} />
       <TripDetails name="notes" text={singleTrip.notes} />
       <Image
+        className="uploadedImage"
         cloudName="dyjecx1wm"
         publicId={singleTrip.photo}
         secure="true"
-        height="200"
-        width="400"
       />
       <div className="editButtonBox">
         <Link to={`/saved-trips/${singleTrip.id}/edit`}>

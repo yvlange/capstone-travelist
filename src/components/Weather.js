@@ -1,3 +1,4 @@
+import "../styles/Weather.css";
 import { useEffect, useState } from "react";
 
 function Weather({ text }) {
@@ -9,19 +10,24 @@ function Weather({ text }) {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const weatherData = data.current.temp_c;
-        // const iconData = data.current.condition.icon;
+        const iconData = data.current.condition.icon;
         setWeather(weatherData);
-
-        console.log(weather);
+        setIcon(iconData);
+      })
+      .catch((error) => {
+        console.log("Error status: ", error.toString());
       });
-  }, []);
+  }, [text, weather]);
 
   return (
-    <div>
-      <p>The current weather is {weather}°C</p>
-    </div>
+    <section className="weatherContainer">
+      <p className="temperature">
+        The current weather in <span className="temperature__city">{text}</span>{" "}
+        is <span className="temperature__weather">{weather}°C</span>.
+      </p>
+      <img src={icon} alt="weather icon" className="weatherIcon" />
+    </section>
   );
 }
 export default Weather;
