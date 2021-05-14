@@ -67,6 +67,8 @@
 }
 
 .imagePreview {
-  height: 50vh;
-  width: 50vw;
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
 }

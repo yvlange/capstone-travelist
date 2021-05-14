@@ -9,6 +9,7 @@ import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
+import { Image } from "cloudinary-react";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -17,6 +18,7 @@ function EditTrip() {
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState("");
+  const [imgPreview, setImgPreview] = useState(null);
   const { id } = useParams();
   const history = useHistory();
 
@@ -98,13 +100,28 @@ function EditTrip() {
             setNotesInput(e.target.value);
           }}
         />
+        <Image
+          className="uploadedImage"
+          cloudName="dyjecx1wm"
+          publicId={imageUpload}
+          secure="true"
+        />
         <UploadPhoto
           id="photo"
           name="photo"
           onChange={(e) => {
             setImageUpload(e.target.files[0]);
+
+            const file = e.target.files[0];
+            const prevURL = URL.createObjectURL(file);
+
+            setImgPreview(prevURL);
           }}
         />
+        {imageUpload ? (
+          <img className="imagePreview" src={imgPreview} alt="preview" />
+        ) : null}
+
         <div className="saveButtonBox">
           <button type="submit" className="saveButton">
             save

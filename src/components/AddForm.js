@@ -4,7 +4,7 @@ import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
 import DatePicker from "react-multi-date-picker";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -14,7 +14,7 @@ function AddForm() {
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState("");
   const history = useHistory();
-  const [imgPreview, setImgPreview] = useState(null);
+  const [imgPreview, setImgPreview] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -89,17 +89,24 @@ function AddForm() {
           id="photo"
           name="photo"
           onChange={(e) => {
-            setImageUpload(e.target.files[0]);
+            setImageUpload(e.target.files);
+            console.log(imageUpload);
+            const imageArray = Array.from(e.target.files).map((file) =>
+              URL.createObjectURL(file)
+            );
 
-            const file = e.target.files[0];
-            const prevURL = URL.createObjectURL(file);
-
-            setImgPreview(prevURL);
+            setImgPreview((prevURL) => prevURL.concat(imageArray));
+            console.log(imgPreview);
           }}
         />
-        {imageUpload ? (
-          <img className="imagePreview" src={imgPreview} alt="preview" />
-        ) : null}
+
+        {imageUpload
+          ? imgPreview.map((imgPreview) => {
+              return (
+                <img className="imagePreview" src={imgPreview} alt="preview" />
+              );
+            })
+          : null}
 
         <div className="form__buttons">
           {/* <Link to="/trips"> */}
@@ -107,9 +114,9 @@ function AddForm() {
             save
           </button>
           {/* </Link> */}
-          <Link to="/">
-            <button className="cancel">cancel</button>
-          </Link>
+          {/* <Link to="/"> */}
+          <button className="cancel">cancel</button>
+          {/* </Link> */}
         </div>
       </form>
     </div>
