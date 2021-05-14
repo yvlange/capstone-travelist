@@ -4,14 +4,16 @@ import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
 import DatePicker from "react-multi-date-picker";
+import { useHistory, Link } from "react-router-dom";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
-  const [datesInput, setDatesInput] = useState(new Date());
+  const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState("");
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,14 +37,8 @@ function AddForm() {
           notes: notesInput,
           photo: imageURL,
         });
-
-        setDestinationInput("");
-        setDatesInput("");
-        setActivitiesInput("");
-        setRestaurantsInput("");
-        setNotesInput("");
-        setImageUpload("");
       });
+    history.push("/trips");
   }
 
   return (
@@ -95,10 +91,14 @@ function AddForm() {
           }}
         />
         <div className="form__buttons">
+          {/* <Link to="/trips"> */}
           <button type="submit" className="submit">
             save
           </button>
-          <button className="cancel">cancel</button>
+          {/* </Link> */}
+          <Link to="/">
+            <button className="cancel">cancel</button>
+          </Link>
         </div>
       </form>
     </div>

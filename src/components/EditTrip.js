@@ -6,39 +6,66 @@ import {
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import FormInput from "./FormInput";
+import UploadPhoto from "./UploadPhoto";
 import { useHistory } from "react-router-dom";
+import DatePicker from "react-multi-date-picker";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
+  const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
+  const [imageUpload, setImageUpload] = useState("");
   const { id } = useParams();
   const history = useHistory();
 
   function handleOnSubmit(e) {
     e.preventDefault();
-    editSingleTripFromLocalStorage(id, {
-      destination: destinationInput,
-      activities: activitiesInput,
-      restaurants: restaurantsInput,
-      notes: notesInput,
-    });
-    history.push("/Trips");
+    const formData = new FormData();
+    formData.append("file", imageUpload);
+    formData.append("upload_preset", "tyikvr8a");
+
+    fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+      method: "PUT",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const imageURL = data.secure_url;
+        editSingleTripFromLocalStorage(id, {
+          destination: destinationInput,
+          dates: datesInput,
+          activities: activitiesInput,
+          restaurants: restaurantsInput,
+          notes: notesInput,
+          photo: imageURL,
+        });
+      });
+    history.push("/trips");
   }
 
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
     setDestinationInput(myTrip.destination);
+    setDatesInput(myTrip.dates);
     setActivitiesInput(myTrip.activities);
     setRestaurantsInput(myTrip.restaurants);
     setNotesInput(myTrip.notes);
+    setImageUpload(myTrip.photo);
   }, [id]);
 
   return (
     <div>
       <h3>edit your trip.</h3>
       <form className="editForm" onSubmit={handleOnSubmit}>
+        <DatePicker
+          value={datesInput}
+          onChange={(date) => setDatesInput(date)}
+          format="MM/DD/YYYY"
+          range
+          inputClass="custom-input"
+        />
         <FormInput
           id="destination"
           name="destination"
@@ -69,6 +96,13 @@ function EditTrip() {
           value={notesInput}
           onChange={(e) => {
             setNotesInput(e.target.value);
+          }}
+        />
+        <UploadPhoto
+          id="photo"
+          name="photo"
+          onChange={(e) => {
+            setImageUpload(e.target.files[0]);
           }}
         />
         <div className="saveButtonBox">

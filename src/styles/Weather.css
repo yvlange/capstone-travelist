@@ -1,0 +1,28 @@
+.weatherContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.temperature {
+  padding-left: 10px;
+}
+
+.temperature__city,
+.temperature__weather {
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.weatherIcon {
+  margin: 0;
+  padding-right: 20px;
+}

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import TripDetails from "./TripDetails";
 import { Image } from "cloudinary-react";
+import Weather from "./Weather";
 
 function SavedTrip() {
   const [singleTrip, setSingleTrip] = useState({});
@@ -18,7 +19,6 @@ function SavedTrip() {
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
     setSingleTrip(myTrip);
-    console.log(myTrip);
 
     setFirstYear(myTrip.dates[0].year);
     setFirstMonth(myTrip.dates[0].month.name);
@@ -27,13 +27,13 @@ function SavedTrip() {
     setSecondMonth(myTrip.dates[1].month.name);
     setSecondDay(myTrip.dates[1].day);
   }, [id]);
-  console.log(singleTrip);
 
   return (
     <div className="savedTrip" key={id}>
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
+      <Weather text={singleTrip.destination} />
       <TripDetails
         name="date"
         text={`${firstDay}. ${firstMonth} ${firstYear} -
@@ -43,11 +43,10 @@ function SavedTrip() {
       <TripDetails name="restaurants" text={singleTrip.restaurants} />
       <TripDetails name="notes" text={singleTrip.notes} />
       <Image
+        className="uploadedImage"
         cloudName="dyjecx1wm"
         publicId={singleTrip.photo}
         secure="true"
-        height="200"
-        width="400"
       />
       <div className="editButtonBox">
         <Link to={`/saved-trips/${singleTrip.id}/edit`}>
