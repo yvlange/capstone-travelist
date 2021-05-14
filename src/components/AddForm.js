@@ -14,11 +14,13 @@ function AddForm() {
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState("");
   const history = useHistory();
+  const [imgPreview, setImgPreview] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", imageUpload);
+
     formData.append("upload_preset", "tyikvr8a");
 
     fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
@@ -88,8 +90,17 @@ function AddForm() {
           name="photo"
           onChange={(e) => {
             setImageUpload(e.target.files[0]);
+
+            const file = e.target.files[0];
+            const prevURL = URL.createObjectURL(file);
+
+            setImgPreview(prevURL);
           }}
         />
+        {imageUpload ? (
+          <img className="imagePreview" src={imgPreview} alt="preview" />
+        ) : null}
+
         <div className="form__buttons">
           {/* <Link to="/trips"> */}
           <button type="submit" className="submit">

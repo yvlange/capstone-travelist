@@ -11,13 +11,10 @@ function FormInput({ id, name, value, onChange }) {
   }
 
   const autoExpand = function (textField) {
-    // Reset field height
     textField.style.height = "inherit";
 
-    // Get the computed styles for the element
     const computed = getComputedStyle(textField);
 
-    // Calculate the height
     const height =
       parseInt(computed.getPropertyValue("border-top-width")) +
       parseInt(computed.getPropertyValue("padding-top")) / 2 +
