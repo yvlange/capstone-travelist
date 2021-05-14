@@ -29,7 +29,7 @@ function AddForm() {
       .then((data) => {
         const imageURL = data.secure_url;
         addTripsToLocalStorage({
-          id: destinationInput,
+          id: destinationInput.split(" ").join("-"),
           destination: destinationInput,
           dates: datesInput,
           activities: activitiesInput,
