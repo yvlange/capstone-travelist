@@ -9,7 +9,6 @@ import FormInput from "./FormInput";
 import UploadPhoto from "./UploadPhoto";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
-import { Image } from "cloudinary-react";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -17,7 +16,7 @@ function EditTrip() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUpload, setImageUpload] = useState("");
+  const [imageUpload, setImageUpload] = useState([]);
   const [imgPreview, setImgPreview] = useState(null);
   const { id } = useParams();
   const history = useHistory();
@@ -35,6 +34,8 @@ function EditTrip() {
       .then((response) => response.json())
       .then((data) => {
         const imageURL = data.secure_url;
+
+        // imageURL.push(...imageURL);
         editSingleTripFromLocalStorage(id, {
           destination: destinationInput,
           dates: datesInput,
@@ -100,12 +101,7 @@ function EditTrip() {
             setNotesInput(e.target.value);
           }}
         />
-        <Image
-          className="uploadedImage"
-          cloudName="dyjecx1wm"
-          publicId={imageUpload}
-          secure="true"
-        />
+
         <UploadPhoto
           id="photo"
           name="photo"
@@ -118,6 +114,7 @@ function EditTrip() {
             setImgPreview(prevURL);
           }}
         />
+
         {imageUpload ? (
           <img className="imagePreview" src={imgPreview} alt="preview" />
         ) : null}

@@ -12,15 +12,15 @@ function AddForm() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUpload, setImageUpload] = useState("");
-  const history = useHistory();
+  const [imageUpload, setImageUpload] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
+
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", imageUpload);
-
     formData.append("upload_preset", "tyikvr8a");
 
     fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
@@ -29,7 +29,18 @@ function AddForm() {
     })
       .then((response) => response.json())
       .then((data) => {
-        const imageURL = data.secure_url;
+        const imageURL = [data.secure_url];
+
+        imageURL.push(...imageURL);
+        console.log(imageURL);
+        // const secondImage = imageURL.map((image) => {
+        //   if (image !== image) {
+        //     return { ...imageURL, ...secondImage };
+        //   } else {
+        //     return secondImage;
+        //   }
+        // });
+
         addTripsToLocalStorage({
           id: destinationInput.split(" ").join("-"),
           destination: destinationInput,
@@ -39,8 +50,8 @@ function AddForm() {
           notes: notesInput,
           photo: imageURL,
         });
+        history.push("/trips");
       });
-    history.push("/trips");
   }
 
   return (
@@ -52,6 +63,7 @@ function AddForm() {
           format="MM/DD/YYYY"
           range
           inputClass="custom-input"
+          required
         />
         <FormInput
           id="destination"
@@ -89,14 +101,13 @@ function AddForm() {
           id="photo"
           name="photo"
           onChange={(e) => {
-            setImageUpload(e.target.files);
-            console.log(imageUpload);
+            setImageUpload(e.target.files[0]);
+
             const imageArray = Array.from(e.target.files).map((file) =>
               URL.createObjectURL(file)
             );
-
+            setImgPreview([]);
             setImgPreview((prevURL) => prevURL.concat(imageArray));
-            console.log(imgPreview);
           }}
         />
 
@@ -109,17 +120,14 @@ function AddForm() {
           : null}
 
         <div className="form__buttons">
-          {/* <Link to="/trips"> */}
           <button type="submit" className="submit">
             save
           </button>
-          {/* </Link> */}
-          {/* <Link to="/"> */}
           <button className="cancel">cancel</button>
-          {/* </Link> */}
         </div>
       </form>
     </div>
   );
 }
+
 export default AddForm;
