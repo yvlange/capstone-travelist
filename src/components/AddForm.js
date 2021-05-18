@@ -100,7 +100,7 @@ function AddForm() {
           }}
         />
 
-        {imageUpload
+        {imgPreview
           ? imgPreview.map((imgPreview) => {
               return (
                 <img className="imagePreview" src={imgPreview} alt="preview" />

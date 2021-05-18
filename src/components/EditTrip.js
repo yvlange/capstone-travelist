@@ -56,9 +56,8 @@ function EditTrip() {
     setRestaurantsInput(myTrip.restaurants);
     setNotesInput(myTrip.notes);
     setImageUpload(myTrip.photo);
+    console.log(myTrip.photo);
   }, [id]);
-
-  console.log(imageUpload);
 
   return (
     <div>
@@ -110,16 +109,21 @@ function EditTrip() {
           onChange={(e) => {
             setImageUpload(e.target.files[0]);
 
-            const file = e.target.files[0];
-            const prevURL = URL.createObjectURL(file);
-
-            setImgPreview(prevURL);
+            const imageArray = Array.from(e.target.files).map((file) =>
+              URL.createObjectURL(file)
+            );
+            setImgPreview([]);
+            setImgPreview((prevURL) => prevURL.concat(imageArray));
           }}
         />
 
-        {imageUpload ? (
-          <img className="imagePreview" src={imgPreview} alt="preview" />
-        ) : null}
+        {imgPreview
+          ? imgPreview.map((imgPreview) => {
+              return (
+                <img className="imagePreview" src={imgPreview} alt="preview" />
+              );
+            })
+          : null}
 
         <div className="saveButtonBox">
           <button type="submit" className="saveButton">

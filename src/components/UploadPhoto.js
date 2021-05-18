@@ -6,7 +6,6 @@ function UploadPhoto({ id, name, onChange }) {
       <input
         type="file"
         accept="image/*"
-        multiple
         className="upload__input"
         id={id}
         name={name}
