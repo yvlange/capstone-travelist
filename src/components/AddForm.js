@@ -14,7 +14,6 @@ function AddForm() {
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
-
   const history = useHistory();
 
   function handleSubmit(e) {
@@ -29,17 +28,7 @@ function AddForm() {
     })
       .then((response) => response.json())
       .then((data) => {
-        const imageURL = [data.secure_url];
-
-        imageURL.push(...imageURL);
-        console.log(imageURL);
-        // const secondImage = imageURL.map((image) => {
-        //   if (image !== image) {
-        //     return { ...imageURL, ...secondImage };
-        //   } else {
-        //     return secondImage;
-        //   }
-        // });
+        const imageURL = data.secure_url;
 
         addTripsToLocalStorage({
           id: destinationInput.split(" ").join("-"),

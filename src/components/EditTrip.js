@@ -17,7 +17,8 @@ function EditTrip() {
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState([]);
-  const [imgPreview, setImgPreview] = useState(null);
+  const [imgPreview, setImgPreview] = useState([]);
+
   const { id } = useParams();
   const history = useHistory();
 
@@ -35,7 +36,6 @@ function EditTrip() {
       .then((data) => {
         const imageURL = data.secure_url;
 
-        // imageURL.push(...imageURL);
         editSingleTripFromLocalStorage(id, {
           destination: destinationInput,
           dates: datesInput,
@@ -45,7 +45,7 @@ function EditTrip() {
           photo: imageURL,
         });
       });
-    history.push("/trips");
+    history.push(`/saved-trip/${destinationInput}`);
   }
 
   useEffect(() => {
@@ -57,6 +57,8 @@ function EditTrip() {
     setNotesInput(myTrip.notes);
     setImageUpload(myTrip.photo);
   }, [id]);
+
+  console.log(imageUpload);
 
   return (
     <div>
