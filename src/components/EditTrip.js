@@ -16,7 +16,9 @@ function EditTrip() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [restaurantsInput, setRestaurantsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUpload, setImageUpload] = useState("");
+  const [imageUpload, setImageUpload] = useState([]);
+  const [imgPreview, setImgPreview] = useState([]);
+
   const { id } = useParams();
   const history = useHistory();
 
@@ -33,6 +35,7 @@ function EditTrip() {
       .then((response) => response.json())
       .then((data) => {
         const imageURL = data.secure_url;
+
         editSingleTripFromLocalStorage(id, {
           destination: destinationInput,
           dates: datesInput,
@@ -42,7 +45,7 @@ function EditTrip() {
           photo: imageURL,
         });
       });
-    history.push("/trips");
+    history.push(`/saved-trip/${destinationInput}`);
   }
 
   useEffect(() => {
@@ -53,6 +56,7 @@ function EditTrip() {
     setRestaurantsInput(myTrip.restaurants);
     setNotesInput(myTrip.notes);
     setImageUpload(myTrip.photo);
+    console.log(myTrip.photo);
   }, [id]);
 
   return (
@@ -98,13 +102,29 @@ function EditTrip() {
             setNotesInput(e.target.value);
           }}
         />
+
         <UploadPhoto
           id="photo"
           name="photo"
           onChange={(e) => {
             setImageUpload(e.target.files[0]);
+
+            const imageArray = Array.from(e.target.files).map((file) =>
+              URL.createObjectURL(file)
+            );
+            setImgPreview([]);
+            setImgPreview((prevURL) => prevURL.concat(imageArray));
           }}
         />
+
+        {imgPreview
+          ? imgPreview.map((imgPreview) => {
+              return (
+                <img className="imagePreview" src={imgPreview} alt="preview" />
+              );
+            })
+          : null}
+
         <div className="saveButtonBox">
           <button type="submit" className="saveButton">
             save

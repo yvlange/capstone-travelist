@@ -6,6 +6,7 @@
   width: 100%;
   margin-top: 10px;
   padding-top: 50px;
+
   color: white;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
@@ -14,16 +15,6 @@
   backdrop-filter: blur(5px);
   text-align: center;
 }
-
-.upload__icon {
-  height: 30px;
-  width: 40px;
-}
-
-/* .upload__input {
-  display: none;
-} */
-
-.upload__label {
-  cursor: pointer;
+.upload__input {
+  width: 100%;
 }

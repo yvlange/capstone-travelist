@@ -65,3 +65,10 @@
   outline: none;
   box-shadow: 10px 10px 20px #d9d9d93e, -10px -10px 20px #ffffff5a;
 }
+
+.imagePreview {
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+}
