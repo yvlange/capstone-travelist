@@ -6,7 +6,7 @@ import {
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import FormInput from "./FormInput";
-import UploadPhoto from "./UploadPhoto";
+import UploadPhotos from "./UploadPhotos";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
 
@@ -16,7 +16,7 @@ function EditTrip() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUpload, setImageUpload] = useState([]);
+  const [imageUploads, setImageUploads] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
 
   const { id } = useParams();
@@ -25,7 +25,7 @@ function EditTrip() {
   function handleOnSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("file", imageUpload);
+    formData.append("file", imageUploads);
     formData.append("upload_preset", "tyikvr8a");
 
     fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
@@ -42,7 +42,7 @@ function EditTrip() {
           activities: activitiesInput,
           locations: locationsInput,
           notes: notesInput,
-          photo: imageURL,
+          photos: imageURL,
         });
       });
     history.push(`/saved-trip/${destinationInput}`);
@@ -55,7 +55,7 @@ function EditTrip() {
     setActivitiesInput(myTrip.activities);
     setLocationsInput(myTrip.locations);
     setNotesInput(myTrip.notes);
-    setImageUpload(myTrip.photo);
+    setImageUploads(myTrip.photo);
     console.log(myTrip.photo);
   }, [id]);
 
@@ -103,11 +103,11 @@ function EditTrip() {
           }}
         />
 
-        <UploadPhoto
-          id="photo"
-          name="photo"
+        <UploadPhotos
+          id="photos"
+          name="photos"
           onChange={(e) => {
-            setImageUpload(e.target.files[0]);
+            setImageUploads(e.target.files[0]);
 
             const imageArray = Array.from(e.target.files).map((file) =>
               URL.createObjectURL(file)

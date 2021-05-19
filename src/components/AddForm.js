@@ -1,6 +1,6 @@
 import "../styles/AddForm.css";
 import FormInput from "./FormInput";
-import UploadPhoto from "./UploadPhoto";
+import UploadPhotos from "./UploadPhotos";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
 import DatePicker from "react-multi-date-picker";
@@ -12,23 +12,30 @@ function AddForm() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUpload, setImageUpload] = useState([]);
+  const [imageUploads, setImageUploads] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
   const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", imageUpload);
-    formData.append("upload_preset", "tyikvr8a");
+    const fileListAsArray = Array.from(imageUploads);
+    const imagesPromises = fileListAsArray.map((imageUpload) => {
+      const formData = new FormData();
 
-    fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
-      method: "PUT",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const imageURL = data.secure_url;
+      formData.append("file", imageUpload);
+      formData.append("upload_preset", "tyikvr8a");
+
+      return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+        method: "PUT",
+        body: formData,
+      }).then((response) => response.json());
+    });
+
+    Promise.all(imagesPromises)
+      .then((imagesResults) => {
+        const imageURLs = imagesResults.map(
+          (imageResult) => imageResult.secure_url
+        );
 
         addTripsToLocalStorage({
           id: destinationInput.split(" ").join("-"),
@@ -37,9 +44,12 @@ function AddForm() {
           activities: activitiesInput,
           locations: locationsInput,
           notes: notesInput,
-          photo: imageURL,
+          photos: imageURLs,
         });
         history.push("/trips");
+      })
+      .catch((error) => {
+        console.log("Error status: ", error.toString());
       });
   }
 
@@ -86,11 +96,11 @@ function AddForm() {
             setNotesInput(e.target.value);
           }}
         />
-        <UploadPhoto
+        <UploadPhotos
           id="photo"
           name="photo"
           onChange={(e) => {
-            setImageUpload(e.target.files[0]);
+            setImageUploads(e.target.files);
 
             const imageArray = Array.from(e.target.files).map((file) =>
               URL.createObjectURL(file)
