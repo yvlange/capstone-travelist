@@ -72,3 +72,9 @@
   border-radius: 5px;
   margin-top: 10px;
 }
+
+.needInspo {
+  cursor: pointer;
+  letter-spacing: 5px;
+  font-weight: 500;
+}

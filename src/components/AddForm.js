@@ -4,7 +4,7 @@ import UploadPhoto from "./UploadPhoto";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
 import DatePicker from "react-multi-date-picker";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -115,6 +115,9 @@ function AddForm() {
           <button className="cancel">cancel</button>
         </div>
       </form>
+      <Link to="/destinationShuffle">
+        <p className="needInspo">need some inspiration?</p>
+      </Link>
     </div>
   );
 }
