@@ -91,7 +91,7 @@ function EditTrip() {
           name="locations"
           value={locationsInput}
           onChange={(e) => {
-            setRestaurantsInput(e.target.value);
+            setLocationsInput(e.target.value);
           }}
         />
         <FormInput
