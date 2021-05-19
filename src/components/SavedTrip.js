@@ -19,7 +19,6 @@ function SavedTrip() {
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
     setSingleTrip(myTrip);
-    console.log(singleTrip.photos);
 
     setFirstYear(myTrip.dates[0].year);
     setFirstMonth(myTrip.dates[0].month.name);
