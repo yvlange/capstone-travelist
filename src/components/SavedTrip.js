@@ -40,7 +40,7 @@ function SavedTrip() {
           ${secondDay}. ${secondMonth} ${secondYear}`}
       />
       <TripDetails name="activities" text={singleTrip.activities} />
-      <TripDetails name="restaurants" text={singleTrip.restaurants} />
+      <TripDetails name="locations" text={singleTrip.locations} />
       <TripDetails name="notes" text={singleTrip.notes} />
       <Image
         className="uploadedImage"
