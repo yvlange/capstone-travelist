@@ -10,7 +10,7 @@ function AddForm() {
   const [destinationInput, setDestinationInput] = useState("");
   const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
-  const [restaurantsInput, setRestaurantsInput] = useState("");
+  const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
@@ -35,7 +35,7 @@ function AddForm() {
           destination: destinationInput,
           dates: datesInput,
           activities: activitiesInput,
-          restaurants: restaurantsInput,
+          locations: locationsInput,
           notes: notesInput,
           photo: imageURL,
         });
@@ -71,11 +71,11 @@ function AddForm() {
           }}
         />
         <FormInput
-          id="restaurants"
-          name="restaurants"
-          value={restaurantsInput}
+          id="locations"
+          name="locations"
+          value={locationsInput}
           onChange={(e) => {
-            setRestaurantsInput(e.target.value);
+            setLocationsInput(e.target.value);
           }}
         />
         <FormInput

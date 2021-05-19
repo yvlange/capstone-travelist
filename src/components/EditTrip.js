@@ -14,7 +14,7 @@ function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
   const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
-  const [restaurantsInput, setRestaurantsInput] = useState("");
+  const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUpload, setImageUpload] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
@@ -40,7 +40,7 @@ function EditTrip() {
           destination: destinationInput,
           dates: datesInput,
           activities: activitiesInput,
-          restaurants: restaurantsInput,
+          locations: locationsInput,
           notes: notesInput,
           photo: imageURL,
         });
@@ -53,7 +53,7 @@ function EditTrip() {
     setDestinationInput(myTrip.destination);
     setDatesInput(myTrip.dates);
     setActivitiesInput(myTrip.activities);
-    setRestaurantsInput(myTrip.restaurants);
+    setLocationsInput(myTrip.locations);
     setNotesInput(myTrip.notes);
     setImageUpload(myTrip.photo);
     console.log(myTrip.photo);
@@ -87,9 +87,9 @@ function EditTrip() {
           }}
         />
         <FormInput
-          id="restaurants"
-          name="restaurants"
-          value={restaurantsInput}
+          id="locations"
+          name="locations"
+          value={locationsInput}
           onChange={(e) => {
             setRestaurantsInput(e.target.value);
           }}
