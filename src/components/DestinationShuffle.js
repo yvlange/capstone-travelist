@@ -22,7 +22,7 @@ function DestinationShuffle() {
 
   return (
     <div>
-      <h3>need some travel inspiration?</h3>
+      <h3>where should you travel next?</h3>
       <p className="inspoCountry">{country}</p>
     </div>
   );
