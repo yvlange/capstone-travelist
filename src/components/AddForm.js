@@ -31,22 +31,26 @@ function AddForm() {
       }).then((response) => response.json());
     });
 
-    Promise.all([...imagesPromises]).then(([...imagesResults]) => {
-      const imageURLs = imagesResults.map(
-        (imageResult) => imageResult.secure_url
-      );
+    Promise.all(imagesPromises)
+      .then((imagesResults) => {
+        const imageURLs = imagesResults.map(
+          (imageResult) => imageResult.secure_url
+        );
 
-      addTripsToLocalStorage({
-        id: destinationInput.split(" ").join("-"),
-        destination: destinationInput,
-        dates: datesInput,
-        activities: activitiesInput,
-        locations: locationsInput,
-        notes: notesInput,
-        photos: imageURLs,
+        addTripsToLocalStorage({
+          id: destinationInput.split(" ").join("-"),
+          destination: destinationInput,
+          dates: datesInput,
+          activities: activitiesInput,
+          locations: locationsInput,
+          notes: notesInput,
+          photos: imageURLs,
+        });
+        history.push("/trips");
+      })
+      .catch((error) => {
+        console.log("Error status: ", error.toString());
       });
-      history.push("/trips");
-    });
   }
 
   return (
