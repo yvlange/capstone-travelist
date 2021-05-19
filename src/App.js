@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Add from "./components/Add";
 import Trips from "./components/Trips";
-import Profile from "./components/Profile";
+import DestinationShuffle from "./components/DestinationShuffle";
 import SavedTrip from "./components/SavedTrip";
 import EditTrip from "./components/EditTrip";
 
@@ -15,8 +15,8 @@ function App() {
 
         <main className="Main">
           <Switch>
-            <Route path="/profile">
-              <Profile />
+            <Route path="/destinationShuffle">
+              <DestinationShuffle />
             </Route>
             <Route path="/trips">
               <Trips />
@@ -24,7 +24,7 @@ function App() {
             <Route path="/add">
               <Add />
             </Route>
-            <Route path="/saved-trips/:id/edit">
+            <Route path="/saved-trip/:id/edit">
               <EditTrip />
             </Route>
             <Route path="/saved-trip/:id">

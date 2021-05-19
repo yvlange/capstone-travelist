@@ -13,7 +13,7 @@ function Navigation() {
       <NavLink to="/trips">
         <FaSuitcaseRolling className="navigation__suitcase" />
       </NavLink>
-      <NavLink to="/profile">
+      <NavLink to="/destinationShuffle">
         <ImUser className="navigation__user" />
       </NavLink>
     </nav>

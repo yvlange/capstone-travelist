@@ -18,7 +18,7 @@ function Weather({ text }) {
       .catch((error) => {
         console.log("Error status: ", error.toString());
       });
-  }, [text, weather]);
+  }, [text]);
 
   return (
     <section className="weatherContainer">
