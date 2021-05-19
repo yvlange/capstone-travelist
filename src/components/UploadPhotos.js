@@ -1,10 +1,11 @@
-import "../styles/UploadPhoto.css";
+import "../styles/UploadPhotos.css";
 
-function UploadPhoto({ id, name, onChange }) {
+function UploadPhotos({ id, name, onChange }) {
   return (
     <div className="upload">
       <input
         type="file"
+        multiple
         accept="image/*"
         className="upload__input"
         id={id}
@@ -14,4 +15,4 @@ function UploadPhoto({ id, name, onChange }) {
     </div>
   );
 }
-export default UploadPhoto;
+export default UploadPhotos;

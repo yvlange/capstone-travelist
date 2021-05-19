@@ -45,7 +45,7 @@ function SavedTrip() {
       <Image
         className="uploadedImage"
         cloudName="dyjecx1wm"
-        publicId={singleTrip.photo}
+        publicId={singleTrip.photos}
         secure="true"
       />
       <div className="editButtonBox">
