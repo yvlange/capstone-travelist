@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import "../styles/DestinationShuffle.css";
 
 function DestinationShuffle() {
-  const [capital, setCapital] = useState("");
+  const [country, setCountry] = useState("");
 
   useEffect(() => {
-    const url = "https://random-data-api.com/api/nation/random_nation";
+    const url = "https://random-data-api.com/api/address/random_address";
 
     fetch(url)
       .then((res) => res.json())
 
       .then((data) => {
-        const capitalData = data.capital;
+        const countryData = data.country;
 
-        setCapital(capitalData);
+        setCountry(countryData);
       })
       .catch((error) => {
         console.log("Error status: ", error.toString());
@@ -22,10 +22,8 @@ function DestinationShuffle() {
 
   return (
     <div>
-      <h3>need some travel insperation?</h3>
-      <section className="inspoContainer">
-        <p className="inspoCapital">{capital}</p>
-      </section>
+      <h3>need some travel inspiration?</h3>
+      <p className="inspoCountry">{country}</p>
     </div>
   );
 }

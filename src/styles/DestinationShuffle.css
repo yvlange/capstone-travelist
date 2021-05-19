@@ -1,14 +1,36 @@
-.inspoContainer {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.inspoCapital {
+.inspoCountry {
+  margin-top: 100px;
   text-align: center;
+  top: 50%;
+  width: 100%;
+  font-size: 30px;
   letter-spacing: 12px;
   font-weight: 600;
-  margin: 0.5em 0;
+  -webkit-animation: text-focus-in 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
