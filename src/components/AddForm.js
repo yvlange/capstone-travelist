@@ -13,29 +13,28 @@ function AddForm() {
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
   const [imageUploads, setImageUploads] = useState([]);
-  const [imageURLs, setImageURLs] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
   const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
     const fileListAsArray = Array.from(imageUploads);
-
-    fileListAsArray.forEach((imageUpload) => {
+    const imagesPromises = fileListAsArray.map((imageUpload) => {
       const formData = new FormData();
 
       formData.append("file", imageUpload);
       formData.append("upload_preset", "tyikvr8a");
 
-      fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+      return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
         method: "PUT",
         body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setImageURLs((old) => [...old, data.secure_url]);
-          // const imageURL = data.secure_url;
-        });
+      }).then((response) => response.json());
+    });
+
+    Promise.all([...imagesPromises]).then(([...imagesResults]) => {
+      const imageURLs = imagesResults.map(
+        (imageResult) => imageResult.secure_url
+      );
 
       addTripsToLocalStorage({
         id: destinationInput.split(" ").join("-"),
@@ -46,8 +45,8 @@ function AddForm() {
         notes: notesInput,
         photos: imageURLs,
       });
-      history.push("/trips");
     });
+    history.push("/trips");
   }
 
   return (
