@@ -45,8 +45,8 @@ function AddForm() {
         notes: notesInput,
         photos: imageURLs,
       });
+      history.push("/trips");
     });
-    history.push("/trips");
   }
 
   return (

@@ -19,6 +19,7 @@ function SavedTrip() {
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
     setSingleTrip(myTrip);
+    console.log(singleTrip.photos);
 
     setFirstYear(myTrip.dates[0].year);
     setFirstMonth(myTrip.dates[0].month.name);
@@ -42,12 +43,19 @@ function SavedTrip() {
       <TripDetails name="activities" text={singleTrip.activities} />
       <TripDetails name="locations" text={singleTrip.locations} />
       <TripDetails name="notes" text={singleTrip.notes} />
-      <Image
-        className="uploadedImage"
-        cloudName="dyjecx1wm"
-        publicId={singleTrip.photos}
-        secure="true"
-      />
+
+      {singleTrip.photos &&
+        singleTrip.photos.map((image) => {
+          return (
+            <Image
+              className="uploadedImage"
+              cloudName="dyjecx1wm"
+              publicId={image}
+              secure="true"
+            />
+          );
+        })}
+
       <div className="editButtonBox">
         <Link to={`/saved-trips/${singleTrip.id}/edit`}>
           <button className="editButton">edit</button>
