@@ -9,6 +9,7 @@ import FormInput from "./FormInput";
 // import UploadPhotos from "./UploadPhotos";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
+import GoBackButton from "./GoBackButton";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -129,7 +130,8 @@ function EditTrip() {
             })
           : null} */}
 
-        <div className="saveButtonBox">
+        <div className="editButtonBox">
+          <GoBackButton />
           <button type="submit" className="saveButton">
             save
           </button>

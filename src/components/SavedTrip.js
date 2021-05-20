@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import TripDetails from "./TripDetails";
 import Carousel from "./Carousel";
 import Weather from "./Weather";
+import GoBackButton from "./GoBackButton";
 
 function SavedTrip() {
   const [singleTrip, setSingleTrip] = useState({});
@@ -46,7 +47,8 @@ function SavedTrip() {
 
       <Carousel name="photos" images={singleTrip.photos} />
 
-      <div className="editButtonBox">
+      <div className="buttonBox">
+        <GoBackButton />
         <Link to={`/saved-trip/${singleTrip.id}/edit`}>
           <button className="editButton">edit</button>
         </Link>
