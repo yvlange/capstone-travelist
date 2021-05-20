@@ -18,3 +18,13 @@
   width: 100%;
   padding: 20px;
 }
+
+.upload__icon {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.upload__label {
+  font-size: 12px;
+}
