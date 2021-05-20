@@ -6,7 +6,7 @@ import {
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import FormInput from "./FormInput";
-import UploadPhotos from "./UploadPhotos";
+// import UploadPhotos from "./UploadPhotos";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-multi-date-picker";
 
@@ -16,42 +16,11 @@ function EditTrip() {
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
-  const [imageUploads, setImageUploads] = useState([]);
-  const [imgPreview, setImgPreview] = useState([]);
+  // const [imageUploads, setImageUploads] = useState([]);
+  // const [imgPreview, setImgPreview] = useState([]);
 
   const { id } = useParams();
   const history = useHistory();
-
-  function handleOnSubmit(e) {
-    e.preventDefault();
-    const fileListAsArray = Array.from(imageUploads);
-    const imagesPromises = fileListAsArray.map((imageUpload) => {
-      const formData = new FormData();
-
-      formData.append("file", imageUpload);
-      formData.append("upload_preset", "tyikvr8a");
-
-      return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
-        method: "PUT",
-        body: formData,
-      }).then((response) => response.json());
-    });
-
-    Promise.all(imagesPromises).then((imagesResults) => {
-      const imageURLs = imagesResults.map(
-        (imageResult) => imageResult.secure_url
-      );
-      editSingleTripFromLocalStorage(id, {
-        destination: destinationInput,
-        dates: datesInput,
-        activities: activitiesInput,
-        locations: locationsInput,
-        notes: notesInput,
-        photos: [...imageURLs],
-      });
-    });
-    history.push(`/saved-trip/${destinationInput}`);
-  }
 
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
@@ -60,8 +29,39 @@ function EditTrip() {
     setActivitiesInput(myTrip.activities);
     setLocationsInput(myTrip.locations);
     setNotesInput(myTrip.notes);
-    setImageUploads(myTrip.photo);
+    // setImageUploads(myTrip.photo);
   }, [id]);
+
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    // const fileListAsArray = Array.from(imageUploads);
+    // const imagesPromises = fileListAsArray.map((imageUpload) => {
+    //   const formData = new FormData();
+
+    //   formData.append("file", imageUpload);
+    //   formData.append("upload_preset", "tyikvr8a");
+
+    //   return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+    //     method: "PUT",
+    //     body: formData,
+    //   }).then((response) => response.json());
+    // });
+
+    // Promise.all(imagesPromises).then((imagesResults) => {
+    //   const imageURLs = imagesResults.map(
+    //     (imageResult) => imageResult.secure_url
+    //   );
+    editSingleTripFromLocalStorage(id, {
+      destination: destinationInput,
+      dates: datesInput,
+      activities: activitiesInput,
+      locations: locationsInput,
+      notes: notesInput,
+      // photos: imageURLs,
+    });
+    // });
+    history.push(`/saved-trip/${destinationInput}`);
+  }
 
   return (
     <div>
@@ -107,7 +107,7 @@ function EditTrip() {
           }}
         />
 
-        <UploadPhotos
+        {/* <UploadPhotos
           id="photos"
           name="photos"
           onChange={(e) => {
@@ -127,7 +127,7 @@ function EditTrip() {
                 <img className="imagePreview" src={imgPreview} alt="preview" />
               );
             })
-          : null}
+          : null} */}
 
         <div className="saveButtonBox">
           <button type="submit" className="saveButton">

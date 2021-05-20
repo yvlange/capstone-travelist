@@ -43,9 +43,8 @@ function SavedTrip() {
       <TripDetails name="locations" text={singleTrip.locations} />
       <TripDetails name="notes" text={singleTrip.notes} />
       <label className="savedTrip__photos">photos</label>
-      {singleTrip.photos && (
-        <Carousel name="photos" images={singleTrip.photos} />
-      )}
+
+      <Carousel name="photos" images={singleTrip.photos} />
 
       <div className="editButtonBox">
         <Link to={`/saved-trip/${singleTrip.id}/edit`}>
