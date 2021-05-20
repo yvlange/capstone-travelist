@@ -35,7 +35,7 @@ function SavedTrip() {
       </h3>
       <Weather text={singleTrip.destination} />
       <TripDetails
-        name="date"
+        name="travel dates"
         text={`${firstDay}. ${firstMonth} ${firstYear} -
           ${secondDay}. ${secondMonth} ${secondYear}`}
       />

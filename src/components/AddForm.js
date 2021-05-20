@@ -7,7 +7,7 @@ import DatePicker from "react-multi-date-picker";
 import { useHistory, Link } from "react-router-dom";
 
 function AddForm() {
-  const [destinationInput, setDestinationInput] = useState("");
+  const [destinationInput, setDestinationInput] = useState();
   const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
@@ -15,6 +15,15 @@ function AddForm() {
   const [imageUploads, setImageUploads] = useState([]);
   const [imgPreview, setImgPreview] = useState([]);
   const history = useHistory();
+
+  function handleDestination(e) {
+    const { value } = e.target;
+    if (value === "") {
+      return console.log("please add a destination");
+    } else {
+      setDestinationInput(value);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,7 +47,7 @@ function AddForm() {
         );
 
         addTripsToLocalStorage({
-          id: destinationInput.split(" ").join("-"),
+          id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`,
           destination: destinationInput,
           dates: datesInput,
           activities: activitiesInput,
@@ -60,6 +69,7 @@ function AddForm() {
           value={datesInput}
           onChange={(date) => setDatesInput(date)}
           format="MM/DD/YYYY"
+          placeholder="select travel dates"
           range
           inputClass="custom-input"
           required
@@ -68,9 +78,8 @@ function AddForm() {
           id="destination"
           name="destination"
           value={destinationInput}
-          onChange={(e) => {
-            setDestinationInput(e.target.value);
-          }}
+          onChange={handleDestination}
+          required
         />
         <FormInput
           id="activities"

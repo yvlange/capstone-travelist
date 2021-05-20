@@ -2,7 +2,7 @@ import "../styles/FormInput.css";
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
-function FormInput({ id, name, value, onChange }) {
+function FormInput({ id, name, value, onChange, required }) {
   const [isShown, setIsShown] = useState(true);
 
   function handleToggleButton(e) {
@@ -42,6 +42,7 @@ function FormInput({ id, name, value, onChange }) {
         value={value}
         onChange={onChange}
         onInput={handleInput}
+        required={required}
       ></textarea>
     </div>
   );
