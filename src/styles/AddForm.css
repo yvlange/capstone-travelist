@@ -32,9 +32,10 @@
   backdrop-filter: blur(6px);
   cursor: pointer;
 }
+
 .cancel {
   height: 50px;
-  width: 70spx;
+  width: 70px;
   border-radius: 10px;
   text-align: center;
   transition: 1s;
