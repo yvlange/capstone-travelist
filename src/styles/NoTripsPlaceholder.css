@@ -8,9 +8,9 @@
 .noTrips {
   text-decoration: none;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-  border: 0.5px solid rgb(125, 125, 125);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
+  border: 0.5px solid var(--border-color);
   border-radius: 5px;
   backdrop-filter: blur(8px);
   height: 40vh;

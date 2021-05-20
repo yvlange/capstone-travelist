@@ -5,8 +5,8 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
   border: 0.5px solid transparent;
   border-radius: 5px;
   backdrop-filter: blur(5px);
