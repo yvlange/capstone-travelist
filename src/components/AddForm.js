@@ -53,7 +53,7 @@ function AddForm() {
           history.push("/trips");
         })
         .catch((error) => {
-          console.log("Error status: ", error.toString());
+          alert("Error status: ", error.toString());
         });
     }
   }
