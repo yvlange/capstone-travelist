@@ -35,7 +35,7 @@ function SavedTrip() {
       </h3>
       <Weather text={singleTrip.destination} />
       <TripDetails
-        name="date"
+        name="travel dates"
         text={`${firstDay}. ${firstMonth} ${firstYear} -
           ${secondDay}. ${secondMonth} ${secondYear}`}
       />
@@ -43,6 +43,7 @@ function SavedTrip() {
       <TripDetails name="locations" text={singleTrip.locations} />
       <TripDetails name="notes" text={singleTrip.notes} />
       <label className="savedTrip__photos">photos</label>
+
       <Carousel name="photos" images={singleTrip.photos} />
 
       <div className="editButtonBox">
