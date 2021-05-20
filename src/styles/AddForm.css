@@ -32,6 +32,7 @@
   backdrop-filter: blur(6px);
   cursor: pointer;
 }
+
 .cancel {
   height: 50px;
   width: 70px;
