@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/DestinationShuffle.css";
 
 function DestinationShuffle() {
@@ -24,6 +25,9 @@ function DestinationShuffle() {
     <div>
       <h3>where should you travel next?</h3>
       <p className="inspoCountry">{country}</p>
+      <Link to="/add">
+        <p className="gotInsired">got inspired?</p>
+      </Link>
     </div>
   );
 }

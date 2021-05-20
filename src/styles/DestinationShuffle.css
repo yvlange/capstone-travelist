@@ -14,6 +14,16 @@
   animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
+.gotInsired {
+  cursor: pointer;
+  letter-spacing: 5px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 60px;
+  -webkit-animation: text-focus-in 4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
 @-webkit-keyframes text-focus-in {
   0% {
     -webkit-filter: blur(12px);
