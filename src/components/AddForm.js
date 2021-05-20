@@ -7,7 +7,7 @@ import DatePicker from "react-multi-date-picker";
 import { useHistory, Link } from "react-router-dom";
 
 function AddForm() {
-  const [destinationInput, setDestinationInput] = useState();
+  const [destinationInput, setDestinationInput] = useState("");
   const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
@@ -16,50 +16,46 @@ function AddForm() {
   const [imgPreview, setImgPreview] = useState([]);
   const history = useHistory();
 
-  function handleDestination(e) {
-    const { value } = e.target;
-    if (value === "") {
-      return console.log("please add a destination");
-    } else {
-      setDestinationInput(value);
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    const fileListAsArray = Array.from(imageUploads);
-    const imagesPromises = fileListAsArray.map((imageUpload) => {
-      const formData = new FormData();
 
-      formData.append("file", imageUpload);
-      formData.append("upload_preset", "tyikvr8a");
+    if (destinationInput === "") {
+      alert("Please enter a destination");
+    } else {
+      const fileListAsArray = Array.from(imageUploads);
+      const imagesPromises = fileListAsArray.map((imageUpload) => {
+        const formData = new FormData();
 
-      return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
-        method: "PUT",
-        body: formData,
-      }).then((response) => response.json());
-    });
+        formData.append("file", imageUpload);
+        formData.append("upload_preset", "tyikvr8a");
 
-    Promise.all(imagesPromises)
-      .then((imagesResults) => {
-        const imageURLs = imagesResults.map(
-          (imageResult) => imageResult.secure_url
-        );
-
-        addTripsToLocalStorage({
-          id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`,
-          destination: destinationInput,
-          dates: datesInput,
-          activities: activitiesInput,
-          locations: locationsInput,
-          notes: notesInput,
-          photos: imageURLs,
-        });
-        history.push("/trips");
-      })
-      .catch((error) => {
-        console.log("Error status: ", error.toString());
+        return fetch("https://api.cloudinary.com/v1_1/dyjecx1wm/image/upload", {
+          method: "PUT",
+          body: formData,
+        }).then((response) => response.json());
       });
+
+      Promise.all(imagesPromises)
+        .then((imagesResults) => {
+          const imageURLs = imagesResults.map(
+            (imageResult) => imageResult.secure_url
+          );
+
+          addTripsToLocalStorage({
+            id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`,
+            destination: destinationInput,
+            dates: datesInput,
+            activities: activitiesInput,
+            locations: locationsInput,
+            notes: notesInput,
+            photos: imageURLs,
+          });
+          history.push("/trips");
+        })
+        .catch((error) => {
+          console.log("Error status: ", error.toString());
+        });
+    }
   }
 
   return (
@@ -78,8 +74,10 @@ function AddForm() {
           id="destination"
           name="destination"
           value={destinationInput}
-          onChange={handleDestination}
-          required
+          onChange={(e) => {
+            setDestinationInput(e.target.value);
+          }}
+          // required="true"
         />
         <FormInput
           id="activities"
