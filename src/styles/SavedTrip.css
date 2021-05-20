@@ -70,3 +70,8 @@
   margin-bottom: 20px;
   width: 100%;
 }
+
+.savedTrip__photos {
+  letter-spacing: 2px;
+  padding-left: 20px;
+}

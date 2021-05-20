@@ -3,7 +3,7 @@ import { getSingleTripFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import TripDetails from "./TripDetails";
-import { Image } from "cloudinary-react";
+import Carousel from "./Carousel";
 import Weather from "./Weather";
 
 function SavedTrip() {
@@ -42,21 +42,11 @@ function SavedTrip() {
       <TripDetails name="activities" text={singleTrip.activities} />
       <TripDetails name="locations" text={singleTrip.locations} />
       <TripDetails name="notes" text={singleTrip.notes} />
-
-      {singleTrip.photos &&
-        singleTrip.photos.map((image) => {
-          return (
-            <Image
-              className="uploadedImage"
-              cloudName="dyjecx1wm"
-              publicId={image}
-              secure="true"
-            />
-          );
-        })}
+      <label className="savedTrip__photos">photos</label>
+      <Carousel name="photos" images={singleTrip.photos} />
 
       <div className="editButtonBox">
-        <Link to={`/saved-trips/${singleTrip.id}/edit`}>
+        <Link to={`/saved-trip/${singleTrip.id}/edit`}>
           <button className="editButton">edit</button>
         </Link>
       </div>

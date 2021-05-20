@@ -56,7 +56,6 @@ function EditTrip() {
     setLocationsInput(myTrip.locations);
     setNotesInput(myTrip.notes);
     setImageUploads(myTrip.photo);
-    console.log(myTrip.photo);
   }, [id]);
 
   return (
