@@ -6,7 +6,7 @@
   width: 100%;
   margin-top: 10px;
   color: white;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--background-button);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
   border: 0.5px solid transparent;
   border-radius: 5px;
@@ -34,9 +34,9 @@ textarea {
   margin: 20px auto;
   font-family: "Roboto";
   display: block;
-  color: white;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  color: var(--color-font);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
   border: 0.5px solid transparent;
   border-radius: 5px;
   backdrop-filter: blur(7px);

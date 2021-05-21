@@ -15,7 +15,7 @@
   top: 48%;
   right: 20px;
   font-size: 2rem;
-  color: white;
+  color: var(--color-font);
   z-index: 1;
   cursor: pointer;
 }

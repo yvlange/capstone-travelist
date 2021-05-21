@@ -22,12 +22,12 @@
   border-radius: 10px;
   text-align: center;
   transition: 1s;
-  color: #fff;
+  color: var(--color-font);
   font-size: 16px;
   letter-spacing: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-  border: 0.5px solid rgb(125, 125, 125);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
+  border: 0.5px solid var(--border-color);
   border-radius: 5px;
   backdrop-filter: blur(6px);
   cursor: pointer;
@@ -39,12 +39,12 @@
   border-radius: 10px;
   text-align: center;
   transition: 1s;
-  color: #fff;
+  color: var(--color-font);
   font-size: 16px;
   letter-spacing: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-  border: 0.5px solid rgb(125, 125, 125);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
+  border: 0.5px solid var(--border-color);
   border-radius: 5px;
   backdrop-filter: blur(6px);
   cursor: pointer;
@@ -52,13 +52,13 @@
 
 .custom-input {
   border-radius: 15px;
-  border: 0.5px solid rgb(125, 125, 125);
+  border: 0.5px solid var(--border-color);
   padding: 4px 12px;
-  color: #fff;
+  color: var(--color-font);
   font-weight: 600;
   background-color: transparent;
   height: 22px;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 45px var(--box-shadow);
   backdrop-filter: blur(10px);
 }
 

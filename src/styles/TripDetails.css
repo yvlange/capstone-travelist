@@ -7,8 +7,8 @@
 .tripDetails__box {
   width: 100%;
   padding: 5px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
   border-radius: 5px;
   backdrop-filter: blur(6px);
   cursor: pointer;
