@@ -29,7 +29,7 @@ function Trips() {
       return (
         <div key={index}>
           <TripCard
-            path={`/saved-trip/${trips.id}`}
+            path={`/single-trip/${trips.id}`}
             src={`https://source.unsplash.com/random/?${trips.destination}`}
             alt={trips.destination}
             text={trips.destination}

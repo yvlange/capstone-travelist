@@ -1,4 +1,4 @@
-import "../styles/SavedTrip.css";
+import "../styles/SingleTrip.css";
 import { getSingleTripFromLocalStorage } from "../services/tripsStorage";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import Carousel from "./Carousel";
 import Weather from "./Weather";
 import GoBackButton from "./GoBackButton";
 
-function SavedTrip() {
+function SingleTrip() {
   const [singleTrip, setSingleTrip] = useState({});
   const { id } = useParams();
   const [firstYear, setFirstYear] = useState("");
@@ -20,7 +20,7 @@ function SavedTrip() {
   useEffect(() => {
     const myTrip = getSingleTripFromLocalStorage(id);
     setSingleTrip(myTrip);
-    console.log(myTrip);
+
     setFirstYear(myTrip.dates[0].year);
     setFirstMonth(myTrip.dates[0].month.name);
     setFirstDay(myTrip.dates[0].day);
@@ -28,10 +28,9 @@ function SavedTrip() {
     setSecondMonth(myTrip.dates[1].month.name);
     setSecondDay(myTrip.dates[1].day);
   }, [id]);
-  console.log(singleTrip);
 
   return (
-    <div className="savedTrip" key={id}>
+    <div className="singleTrip" key={id}>
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
@@ -49,11 +48,11 @@ function SavedTrip() {
 
       <div className="buttonBox">
         <GoBackButton />
-        <Link to={`/saved-trip/${singleTrip.id}/edit`}>
+        <Link to={`/single-trip/${singleTrip.id}/edit`}>
           <button className="editButton">edit</button>
         </Link>
       </div>
     </div>
   );
 }
-export default SavedTrip;
+export default SingleTrip;
