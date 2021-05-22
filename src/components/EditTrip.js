@@ -5,11 +5,10 @@ import {
 } from "../services/tripsStorage";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import FormInput from "./FormInput";
 // import UploadPhotos from "./UploadPhotos";
 import { useHistory } from "react-router-dom";
-import DatePicker from "react-multi-date-picker";
-import GoBackButton from "./GoBackButton";
+
+import Form from "./Form";
 
 function EditTrip() {
   const [destinationInput, setDestinationInput] = useState("");
@@ -22,16 +21,6 @@ function EditTrip() {
 
   const { id } = useParams();
   const history = useHistory();
-
-  useEffect(() => {
-    const myTrip = getSingleTripFromLocalStorage(id);
-    setDestinationInput(myTrip.destination);
-    setDatesInput(myTrip.dates);
-    setActivitiesInput(myTrip.activities);
-    setLocationsInput(myTrip.locations);
-    setNotesInput(myTrip.notes);
-    // setImageUploads(myTrip.photo);
-  }, [id]);
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -61,54 +50,36 @@ function EditTrip() {
       // photos: imageURLs,
     });
     // });
-    history.push(`/saved-trip/${destinationInput}`);
+    history.push(`/saved-trip/${id}`);
   }
+
+  useEffect(() => {
+    const myTrip = getSingleTripFromLocalStorage(id);
+    setDestinationInput(myTrip.destination);
+    setDatesInput(myTrip.dates);
+    setActivitiesInput(myTrip.activities);
+    setLocationsInput(myTrip.locations);
+    setNotesInput(myTrip.notes);
+    // setImageUploads(myTrip.photo);
+  }, [id]);
 
   return (
     <div>
       <h3>edit your trip.</h3>
-      <form className="editForm" onSubmit={handleOnSubmit}>
-        <DatePicker
-          value={datesInput}
-          onChange={(date) => setDatesInput(date)}
-          format="MM/DD/YYYY"
-          range
-          inputClass="custom-input"
-        />
-        <FormInput
-          id="destination"
-          name="destination"
-          value={destinationInput}
-          onChange={(e) => {
-            setDestinationInput(e.target.value);
-          }}
-        />
-        <FormInput
-          id="activities"
-          name="activities"
-          value={activitiesInput}
-          onChange={(e) => {
-            setActivitiesInput(e.target.value);
-          }}
-        />
-        <FormInput
-          id="locations"
-          name="locations"
-          value={locationsInput}
-          onChange={(e) => {
-            setLocationsInput(e.target.value);
-          }}
-        />
-        <FormInput
-          id="notes"
-          name="notes"
-          value={notesInput}
-          onChange={(e) => {
-            setNotesInput(e.target.value);
-          }}
-        />
-
-        {/* <UploadPhotos
+      <Form
+        onSubmit={handleOnSubmit}
+        destinationInput={destinationInput}
+        setDestinationInput={setDestinationInput}
+        datesInput={datesInput}
+        setDatesInput={setDatesInput}
+        activitiesInput={activitiesInput}
+        setActivitiesInput={setActivitiesInput}
+        locationsInput={locationsInput}
+        setLocationsInput={setLocationsInput}
+        notesInput={notesInput}
+        setNotesInput={setNotesInput}
+      />
+      {/* <UploadPhotos
           id="photos"
           name="photos"
           onChange={(e) => {
@@ -129,14 +100,6 @@ function EditTrip() {
               );
             })
           : null} */}
-
-        <div className="editButtonBox">
-          <GoBackButton />
-          <button type="submit" className="saveButton">
-            save
-          </button>
-        </div>
-      </form>
     </div>
   );
 }

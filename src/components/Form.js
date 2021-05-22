@@ -1,6 +1,7 @@
 import FormInput from "./FormInput";
 import UploadPhotos from "./UploadPhotos";
 import DatePicker from "react-multi-date-picker";
+import GoBackButton from "./GoBackButton";
 
 function Form({
   onSubmit,
@@ -84,10 +85,10 @@ function Form({
         : null}
 
       <div className="form__buttons">
+        <GoBackButton />
         <button type="submit" className="submit">
           save
         </button>
-        <button className="cancel">cancel</button>
       </div>
     </form>
   );
