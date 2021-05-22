@@ -1,4 +1,10 @@
 import "../styles/TripDetails.css";
+import PropTypes from "prop-types";
+
+TripDetails.propTypes = {
+  name: PropTypes.string,
+  text: PropTypes.string,
+};
 
 function TripDetails({ name, text }) {
   return (

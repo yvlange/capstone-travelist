@@ -2,6 +2,24 @@ import FormInput from "./FormInput";
 import UploadPhotos from "./UploadPhotos";
 import DatePicker from "react-multi-date-picker";
 import GoBackButton from "./GoBackButton";
+import PropTypes from "prop-types";
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+  destinationInput: PropTypes.string.isRequired,
+  setDestinationInput: PropTypes.func,
+  datesInput: PropTypes.array,
+  setDatesInput: PropTypes.func,
+  activitiesInput: PropTypes.string,
+  setActivitiesInput: PropTypes.func,
+  locationsInput: PropTypes.string,
+  setLocationsInput: PropTypes.func,
+  notesInput: PropTypes.string,
+  setNotesInput: PropTypes.func,
+  setImageUploads: PropTypes.func,
+  imgPreview: PropTypes.array,
+  setImgPreview: PropTypes.func,
+};
 
 function Form({
   onSubmit,
