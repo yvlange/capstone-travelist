@@ -1,10 +1,10 @@
-import "../styles/AddForm.css";
+import "../styles/AddTrip.css";
 import { useState } from "react";
 import { addTripsToLocalStorage } from "../services/tripsStorage";
 import { useHistory, Link } from "react-router-dom";
 import Form from "./Form";
 
-function AddForm() {
+function AddTrip() {
   const [destinationInput, setDestinationInput] = useState("");
   const [datesInput, setDatesInput] = useState("");
   const [activitiesInput, setActivitiesInput] = useState("");
@@ -81,4 +81,4 @@ function AddForm() {
   );
 }
 
-export default AddForm;
+export default AddTrip;
