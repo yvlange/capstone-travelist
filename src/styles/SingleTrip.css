@@ -1,0 +1,31 @@
+.singleTrips {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.buttonBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonBox a {
+  margin: 0;
+}
+
+.editButton {
+  height: 50px;
+  width: 60px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--color-font);
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: var(--background-button);
+  box-shadow: 0 25px 45px var(--box-shadow);
+  border: 0.5px solid var(--border-color);
+  border-radius: 5px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}

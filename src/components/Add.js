@@ -1,11 +1,11 @@
 import "../styles/Add.css";
-import AddForm from "./AddForm";
+import AddTrip from "./AddTrip";
 
 function Add() {
   return (
     <div>
       <h3>start planning your trip.</h3>
-      <AddForm />
+      <AddTrip />
     </div>
   );
 }
