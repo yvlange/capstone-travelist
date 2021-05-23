@@ -1,5 +1,10 @@
 import "../styles/Weather.css";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
+Weather.propTypes = {
+  text: PropTypes.string,
+};
 
 function Weather({ text }) {
   const [weather, setWeather] = useState();

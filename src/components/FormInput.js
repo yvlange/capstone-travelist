@@ -1,6 +1,14 @@
+import PropTypes from "prop-types";
 import "../styles/FormInput.css";
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
+
+FormInput.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 function FormInput({ id, name, value, onChange }) {
   const [isShown, setIsShown] = useState(true);

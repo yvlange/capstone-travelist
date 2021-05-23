@@ -1,6 +1,13 @@
 import "../styles/UploadPhotos.css";
 import { useRef } from "react";
 import { BiCloudUpload } from "react-icons/bi";
+import PropTypes from "prop-types";
+
+UploadPhotos.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 function UploadPhotos({ id, name, onChange }) {
   const inputRef = useRef();
