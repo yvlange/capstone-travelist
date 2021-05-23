@@ -5,7 +5,7 @@ import GoBackButton from "./GoBackButton";
 import PropTypes from "prop-types";
 
 Form.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   destinationInput: PropTypes.string.isRequired,
   setDestinationInput: PropTypes.func,
   datesInput: PropTypes.array,
