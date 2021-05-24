@@ -3,17 +3,12 @@ import {
   getTripsFromLocalStorage,
   removeTripFromLocalStorage,
 } from "../services/tripsStorage";
-import { useEffect, useState } from "react";
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
 import TripCard from "./TripCard";
+import useAllTrips from "../hooks/useAllTrips";
 
 function Trips() {
-  const [trips, setTrips] = useState([]);
-
-  useEffect(() => {
-    const trip = getTripsFromLocalStorage("tripData");
-    setTrips(trip);
-  }, []);
+  const [trips, setTrips] = useAllTrips([]);
 
   function handleRemoveTrip(trip) {
     const confirm = window.confirm("Do you really want to remove the trip?");
