@@ -7,14 +7,16 @@ import GoBackButton from "./GoBackButton";
 import useSingleTrip from "../hooks/useSingleTrip";
 
 function SingleTrip() {
-  const [singleTrip] = useSingleTrip({});
+  const [
+    singleTrip,
+    firstYear,
+    firstMonth,
+    firstDay,
+    secondYear,
+    secondMonth,
+    secondDay,
+  ] = useSingleTrip({});
   const { id } = useParams();
-  const [firstYear] = useSingleTrip("");
-  const [firstMonth] = useSingleTrip("");
-  const [firstDay] = useSingleTrip("");
-  const [secondYear] = useSingleTrip("");
-  const [secondMonth] = useSingleTrip("");
-  const [secondDay] = useSingleTrip("");
 
   return (
     <div className="singleTrip" key={id}>
