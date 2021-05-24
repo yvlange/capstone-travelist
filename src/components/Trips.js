@@ -8,7 +8,7 @@ import TripCard from "./TripCard";
 import useAllTrips from "../hooks/useAllTrips";
 
 function Trips() {
-  const [trips, setTrips] = useAllTrips([]);
+  const [trips, setTrips] = useAllTrips();
 
   function handleRemoveTrip(trip) {
     const confirm = window.confirm("Do you really want to remove the trip?");

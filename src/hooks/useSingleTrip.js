@@ -36,17 +36,11 @@ function useSingleTrip() {
     singleTrip,
     setSingleTrip,
     firstYear,
-    setFirstYear,
     firstMonth,
-    setFirstMonth,
     firstDay,
-    setFirstDay,
     secondYear,
-    setSecondYear,
     secondMonth,
-    setSecondMonth,
     secondDay,
-    setSecondDay,
   ];
 }
 export default useSingleTrip;
