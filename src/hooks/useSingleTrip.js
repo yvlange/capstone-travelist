@@ -32,6 +32,9 @@ function useSingleTrip() {
     setSecondDay,
   ]);
 
+  console.log(firstDay);
+  console.log(firstMonth);
+  console.log(firstYear);
   return [
     singleTrip,
     setSingleTrip,

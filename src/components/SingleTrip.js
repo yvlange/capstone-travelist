@@ -17,7 +17,9 @@ function SingleTrip() {
     secondDay,
   ] = useSingleTrip({});
   const { id } = useParams();
-
+  console.log(firstDay);
+  console.log(firstMonth);
+  console.log(firstYear);
   return (
     <div className="singleTrip" key={id}>
       <h3>
