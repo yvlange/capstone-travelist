@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 TripCard.protoTypes = {
-  index: PropTypes.string,
-  text: PropTypes.string,
-  onClick: PropTypes.func,
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  path: PropTypes.string,
+  index: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 function TripCard({ index, text, onClick, src, alt, path }) {

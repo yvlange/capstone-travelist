@@ -2,6 +2,11 @@ import "../styles/Carousel.css";
 import { BiChevronRight } from "react-icons/bi";
 import { useState } from "react";
 import { Image } from "cloudinary-react";
+import PropTypes from "prop-types";
+
+Carousel.propTypes = {
+  images: PropTypes.array.isRequired,
+};
 
 function Carousel({ images }) {
   const [photo, setPhoto] = useState(0);
