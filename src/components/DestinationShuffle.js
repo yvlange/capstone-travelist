@@ -17,7 +17,7 @@ function DestinationShuffle() {
         setCountry(countryData);
       })
       .catch((error) => {
-        console.log("Error status: ", error.toString());
+        alert("Error status: ", error.toString());
       });
   }, []);
 

@@ -28,7 +28,7 @@ function Weather({ text }) {
   return (
     <section className="weatherContainer">
       <p className="temperature">
-        The current weather in <span className="temperature__city">{text}</span>{" "}
+        The current weather in <span className="temperature__city">{text}</span>
         is <span className="temperature__weather">{weather}°C</span>.
       </p>
       <img src={icon} alt="weather icon" className="weatherIcon" />

@@ -38,7 +38,6 @@ function AddTrip() {
           const imageURLs = imagesResults.map(
             (imageResult) => imageResult.secure_url
           );
-
           addTripsToLocalStorage({
             id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`
               .split(" ")
