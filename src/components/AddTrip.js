@@ -40,7 +40,9 @@ function AddTrip() {
           );
 
           addTripsToLocalStorage({
-            id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`,
+            id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`
+              .split(" ")
+              .join("-"),
             destination: destinationInput,
             dates: datesInput,
             activities: activitiesInput,
