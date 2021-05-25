@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 TripDetails.propTypes = {
   name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 function TripDetails({ name, text }) {

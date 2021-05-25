@@ -5,7 +5,7 @@ import { Image } from "cloudinary-react";
 import PropTypes from "prop-types";
 
 Carousel.propTypes = {
-  images: PropTypes.array.isRequired,
+  images: PropTypes.array,
 };
 
 function Carousel({ images }) {

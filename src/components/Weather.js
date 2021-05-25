@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 Weather.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 function Weather({ text }) {
@@ -28,7 +28,8 @@ function Weather({ text }) {
   return (
     <section className="weatherContainer">
       <p className="temperature">
-        The current weather in <span className="temperature__city">{text}</span>
+        The current weather in
+        <span className="temperature__city"> {text} </span>
         is <span className="temperature__weather">{weather}°C</span>.
       </p>
       <img src={icon} alt="weather icon" className="weatherIcon" />

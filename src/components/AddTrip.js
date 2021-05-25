@@ -6,7 +6,7 @@ import Form from "./Form";
 
 function AddTrip() {
   const [destinationInput, setDestinationInput] = useState("");
-  const [datesInput, setDatesInput] = useState("");
+  const [datesInput, setDatesInput] = useState([]);
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");

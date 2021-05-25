@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom";
 
 function useSingleTrip() {
   const [singleTrip, setSingleTrip] = useState({});
-  const [firstYear, setFirstYear] = useState("");
+  const [firstYear, setFirstYear] = useState();
   const [firstMonth, setFirstMonth] = useState("");
-  const [firstDay, setFirstDay] = useState("");
-  const [secondYear, setSecondYear] = useState("");
+  const [firstDay, setFirstDay] = useState();
+  const [secondYear, setSecondYear] = useState();
   const [secondMonth, setSecondMonth] = useState("");
-  const [secondDay, setSecondDay] = useState("");
+  const [secondDay, setSecondDay] = useState();
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,18 +32,15 @@ function useSingleTrip() {
     setSecondDay,
   ]);
 
-  console.log(firstDay);
-  console.log(firstMonth);
-  console.log(firstYear);
-  return [
+  return {
     singleTrip,
     setSingleTrip,
-    firstYear,
-    firstMonth,
     firstDay,
-    secondYear,
-    secondMonth,
+    firstMonth,
+    firstYear,
     secondDay,
-  ];
+    secondMonth,
+    secondYear,
+  };
 }
 export default useSingleTrip;
