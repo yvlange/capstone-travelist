@@ -50,7 +50,7 @@ function EditTrip() {
       // photos: imageURLs,
     });
     // });
-    history.push(`/saved-trip/${id}`);
+    history.push(`/single-trip/${id}`);
   }
 
   useEffect(() => {
