@@ -1,7 +1,8 @@
 import FormInput from "./FormInput";
 import DatePicker from "react-multi-date-picker";
-import GoBackButton from "./GoBackButton";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router";
 
 EditForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
@@ -33,6 +34,8 @@ function EditForm({
   notesInput,
   setNotesInput,
 }) {
+  const { id } = useParams();
+  const history = useHistory();
   return (
     <form className="form__textfields" onSubmit={onSubmit}>
       <DatePicker
@@ -78,7 +81,13 @@ function EditForm({
       />
 
       <div className="form__buttons">
-        <GoBackButton />
+        <button
+          type="button"
+          className="goBackButton"
+          onClick={() => history.goBack(`/single-trip/${id}`)}
+        >
+          back
+        </button>
         <button type="submit" className="submit">
           save
         </button>

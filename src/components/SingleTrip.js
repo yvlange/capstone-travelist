@@ -12,7 +12,6 @@ function SingleTrip() {
     firstDay,
     firstMonth,
     firstYear,
-
     secondDay,
     secondMonth,
     secondYear,
