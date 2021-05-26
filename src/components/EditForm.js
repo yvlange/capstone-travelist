@@ -1,10 +1,10 @@
 import FormInput from "./FormInput";
-import UploadPhotos from "./UploadPhotos";
 import DatePicker from "react-multi-date-picker";
-import GoBackButton from "./GoBackButton";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router";
 
-Form.propTypes = {
+EditForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   destinationInput: PropTypes.string.isRequired,
   setDestinationInput: PropTypes.func.isRequired,
@@ -21,7 +21,7 @@ Form.propTypes = {
   setImgPreview: PropTypes.func,
 };
 
-function Form({
+function EditForm({
   onSubmit,
   destinationInput,
   setDestinationInput,
@@ -33,10 +33,9 @@ function Form({
   setLocationsInput,
   notesInput,
   setNotesInput,
-  setImageUploads,
-  imgPreview,
-  setImgPreview,
 }) {
+  const { id } = useParams();
+  const history = useHistory();
   return (
     <form className="form__textfields" onSubmit={onSubmit}>
       <DatePicker
@@ -80,30 +79,15 @@ function Form({
           setNotesInput(e.target.value);
         }}
       />
-      <UploadPhotos
-        id="photo"
-        name="photo"
-        onChange={(e) => {
-          setImageUploads(e.target.files);
-
-          const imageArray = Array.from(e.target.files).map((file) =>
-            URL.createObjectURL(file)
-          );
-          setImgPreview([]);
-          setImgPreview((prevURL) => prevURL.concat(imageArray));
-        }}
-      />
-
-      {imgPreview
-        ? imgPreview.map((imgPreview) => {
-            return (
-              <img className="imagePreview" src={imgPreview} alt="preview" />
-            );
-          })
-        : null}
 
       <div className="form__buttons">
-        <GoBackButton />
+        <button
+          type="button"
+          className="goBackButton"
+          onClick={() => history.goBack(`/single-trip/${id}`)}
+        >
+          back
+        </button>
         <button type="submit" className="submit">
           save
         </button>
@@ -111,4 +95,4 @@ function Form({
     </form>
   );
 }
-export default Form;
+export default EditForm;

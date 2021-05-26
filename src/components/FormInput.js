@@ -4,10 +4,10 @@ import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
 FormInput.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 function FormInput({ id, name, value, onChange }) {

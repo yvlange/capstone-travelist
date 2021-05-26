@@ -2,7 +2,7 @@ import "../styles/TripDetails.css";
 import PropTypes from "prop-types";
 
 TripDetails.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   text: PropTypes.string,
 };
 

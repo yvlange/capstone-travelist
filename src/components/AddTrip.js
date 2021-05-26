@@ -6,7 +6,7 @@ import Form from "./Form";
 
 function AddTrip() {
   const [destinationInput, setDestinationInput] = useState("");
-  const [datesInput, setDatesInput] = useState("");
+  const [datesInput, setDatesInput] = useState([]);
   const [activitiesInput, setActivitiesInput] = useState("");
   const [locationsInput, setLocationsInput] = useState("");
   const [notesInput, setNotesInput] = useState("");
@@ -38,9 +38,10 @@ function AddTrip() {
           const imageURLs = imagesResults.map(
             (imageResult) => imageResult.secure_url
           );
-
           addTripsToLocalStorage({
-            id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`,
+            id: `${destinationInput.slice(1)}${destinationInput.slice(2)}`
+              .split(" ")
+              .join("-"),
             destination: destinationInput,
             dates: datesInput,
             activities: activitiesInput,

@@ -7,15 +7,15 @@ import GoBackButton from "./GoBackButton";
 import useSingleTrip from "../hooks/useSingleTrip";
 
 function SingleTrip() {
-  const [
+  const {
     singleTrip,
-    firstYear,
-    firstMonth,
     firstDay,
-    secondYear,
-    secondMonth,
+    firstMonth,
+    firstYear,
     secondDay,
-  ] = useSingleTrip({});
+    secondMonth,
+    secondYear,
+  } = useSingleTrip();
   const { id } = useParams();
 
   return (
@@ -23,7 +23,7 @@ function SingleTrip() {
       <h3>
         your trip to <p>{singleTrip.destination}</p>
       </h3>
-      <Weather text={singleTrip.destination} />
+      <Weather text={singleTrip?.destination} />
       <TripDetails
         name="travel dates"
         text={`${firstDay}. ${firstMonth} ${firstYear} -

@@ -23,3 +23,7 @@ a {
   height: 45px;
   width: 45px;
 }
+
+.selected {
+  color: var(--selected-icon);
+}
