@@ -11,12 +11,9 @@ function Trips() {
   const [trips, setTrips] = useAllTrips();
 
   function handleRemoveTrip(trip) {
-    const confirm = window.confirm("Do you really want to remove the trip?");
-    if (confirm) {
-      removeTripFromLocalStorage(trip);
-      const newTrips = getTripsFromLocalStorage();
-      setTrips(newTrips);
-    }
+    removeTripFromLocalStorage(trip);
+    const newTrips = getTripsFromLocalStorage();
+    setTrips(newTrips);
   }
 
   function renderTrips() {
