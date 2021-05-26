@@ -9,21 +9,18 @@
 }
 
 a {
-  color: var(--color-font);
   margin: 20px;
 }
 
 .navigation__plus {
+  color: var(--color-font);
   height: 60px;
   width: 60px;
 }
 
 .navigation__suitcase,
 .navigation__inspo {
+  color: var(--color-font);
   height: 45px;
   width: 45px;
-}
-
-.selected {
-  color: var(--selected-icon);
 }

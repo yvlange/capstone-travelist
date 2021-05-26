@@ -7,12 +7,13 @@
   margin-top: 10px;
   color: white;
   background: var(--background-button);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 45px var(--box-shadow);
   border: 0.5px solid transparent;
   border-radius: 5px;
   backdrop-filter: blur(5px);
   text-align: left;
   cursor: pointer;
+  transition-delay: 2s;
 }
 
 .button-plus {
