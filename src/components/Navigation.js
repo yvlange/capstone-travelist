@@ -7,13 +7,13 @@ import { NavLink } from "react-router-dom";
 function Navigation() {
   return (
     <nav className="navigation">
-      <NavLink to="/add" activeClassName="selected">
+      <NavLink to="/add">
         <FiPlus className="navigation__plus" />
       </NavLink>
-      <NavLink to="/trips" activeClassName="selected">
+      <NavLink to="/trips">
         <FaSuitcaseRolling className="navigation__suitcase" />
       </NavLink>
-      <NavLink to="/destinationShuffle" activeClassName="selected">
+      <NavLink to="/destinationShuffle">
         <FaLightbulb className="navigation__inspo" />
       </NavLink>
     </nav>
