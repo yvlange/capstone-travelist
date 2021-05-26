@@ -2,6 +2,8 @@ import "../styles/TripCard.css";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import Modal from "./Modal";
+import { useState } from "react";
 
 TripCard.protoTypes = {
   index: PropTypes.string.isRequired,
@@ -13,6 +15,12 @@ TripCard.protoTypes = {
 };
 
 function TripCard({ index, text, onClick, src, alt, path }) {
+  const [showModal, setShowModal] = useState(false);
+
+  function handleModal() {
+    setShowModal(!showModal);
+  }
+
   return (
     <div className="randomImages">
       <Link to={path}>
@@ -23,7 +31,13 @@ function TripCard({ index, text, onClick, src, alt, path }) {
           </p>
         </div>
       </Link>
-      <RiDeleteBin2Line className="randomImages__delete" onClick={onClick} />
+      <RiDeleteBin2Line
+        className="randomImages__delete"
+        onClick={handleModal}
+      />
+      {showModal ? (
+        <Modal onClick={onClick} onCancel={() => setShowModal(false)} />
+      ) : null}
     </div>
   );
 }
