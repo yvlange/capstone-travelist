@@ -6,14 +6,17 @@ import {
 import NoTripsPlaceholder from "./NoTripsPlaceholder";
 import TripCard from "./TripCard";
 import useAllTrips from "../hooks/useAllTrips";
+import { useHistory } from "react-router-dom";
 
 function Trips() {
   const [trips, setTrips] = useAllTrips();
+  const history = useHistory();
 
   function handleRemoveTrip(trip) {
     removeTripFromLocalStorage(trip);
     const newTrips = getTripsFromLocalStorage();
     setTrips(newTrips);
+    history.push("/trips");
   }
 
   function renderTrips() {
